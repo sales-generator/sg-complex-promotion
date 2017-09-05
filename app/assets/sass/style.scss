@@ -1,0 +1,225 @@
+@import './bootstrap';
+@import "fonts";
+@import "header";
+@import "navigation";
+@import "main";
+@import "footer";
+@import "modal-form";
+
+/*Slick Dots*/
+#app .slick-dots li button:before{
+  font-family: FontAwesome;
+
+}
+/************/
+/*Personal data block*/
+#app .personal-data{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 15px;
+  .form-control{
+    height: 18px;
+    width: 18px;
+  }
+  p{
+    font-size: 16px;
+    padding: 0;
+    display: block;
+    line-height: 27px;
+    margin-left: 4px;
+  }
+}
+/********************/
+
+#app .confidential-link {
+  color: white;
+  text-decoration: none;
+  transition: color 0.2s ease-in;
+  font-weight: 600;
+  &:hover{
+    color: #60b57e;
+  }
+}
+
+.btn{
+  font-family: $headers-font-bold;
+  background-color: rgb(96, 181, 126);
+  border-radius: 20px;
+  border: 1px solid rgb(96, 181, 126);
+  border-bottom-width: 3px;
+  padding: 12px 16px;
+  font-size: 18px;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
+  white-space: normal;
+  transition: all 0.3s ease-in-out;
+  &:hover{
+    background-color: #4db45d;
+    color: white;
+  }
+  &:active{
+    background-image: none;
+    outline: 0;
+    -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125)
+  }
+  &--callback{
+    margin-left: auto;
+    font-size: 18px;
+    border-width: 2px;
+    padding: 12px 25px;
+    border-radius: 25px;
+    line-height: 20px;
+    flex: 1 15%;
+  }
+
+  &--download{
+    padding: 12px 16px;
+    border-radius: 25px;
+    font-size: 18px;
+  }
+}
+
+.know-form{
+  display: flex;
+  flex-flow: row;
+  width: 55%;
+  justify-content: center;
+  margin: auto;
+  &__title{
+    font-size: 18px;
+    margin: 55px 0 15px 0;
+    font-family: $headers-font-bold;
+    text-align: center;
+  }
+  &__notification{
+    font-size: 20px;
+    color: rgb(54, 129, 66);
+    animation: knowNotifAnimation 0.3s 1 linear;
+    text-align: center;
+    &--error{
+      color: #e53835;
+    }
+  }
+  input[type="text"]{
+    width: 45%;
+  }
+  input[type="button"]{
+    width: 30%;
+    margin-left: 10px;
+  }
+
+  @each $input in (text, button){
+    input[type="#{$input}"]{
+      border-width: 2px;
+      padding: 10px 12px;
+      height: 44px;
+      border-radius: 5px;
+      line-height: 20px;
+    }
+  }
+}
+.separatorbottom{
+  /*background:rgb(245, 245, 245);*/
+  width: 100%;
+  z-index: 4;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 43px;
+  #bottom-triangle{
+      fill: white;
+      height: 44px;
+      width: 100%;
+    }
+}
+
+.separatortop{
+  width: 100%;
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -0.5px;
+  overflow: hidden;
+  #triangle{
+    height: 18px;
+    width: 100%;
+    fill: #E0E0E0;
+  }
+}
+
+.separator-bottom{
+  width: 100%;
+  z-index: 4;
+  position: absolute;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  .gradient-bottom{
+    height: 50px;
+    /*background: white; */
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, white 100%);
+  }
+}
+
+/*Scroller*/
+.scroller{
+  position: fixed;
+  top: 45%;
+  right: 10%;
+  z-index: 9999;
+  &__button{
+    position: relative;
+    width: 15px;
+    height: 15px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    &::before{
+      content: '';
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      right: calc(50% - 2.5px);
+      top: calc(50% - 2.5px);
+      background-color: #e53835;
+      transition: all 0.3s ease;
+    }
+    &::after{
+      content: '';
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      right: calc(50% - 7.5px);
+      top: calc(50% - 7.5px);
+      border-radius: 50%;
+      border: 1px solid rgb(68, 157, 72);
+      transition: all 0.3s ease;
+      opacity: 0;
+    }
+    &--active{
+      &::before{
+        background-color: rgb(68, 157, 72);
+      }
+      &::after{
+        opacity: 1;
+      }
+    }
+  }
+}
+/**********/
+
+
+
+@keyframes knowNotifAnimation {
+  from{opacity: 0; height: 0px;}
+  to {opacity: 1; height: auto;}
+}
+
+@import "mobile-styles";
+@import "tablet-styles";

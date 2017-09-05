@@ -1,0 +1,74 @@
+.footer{
+   position: relative;
+   background-color: rgb(9, 9, 13);
+   color: white;
+
+  &__address{
+    flex: 2;
+  }
+  &__logo{
+    transition: all 0.3s ease-in-out;
+    flex: 1;
+    img{
+      width: 200px;
+      height: 61px;
+    }
+    &:hover{
+      transform: scale(1.05);
+    }
+  }
+  &__phone{
+    flex: 1;
+    a{
+      font-size: 25px;
+      text-decoration: none;
+      color: white;
+      position: relative;
+      top: -10px;
+      transition: all 0.3s ease-in-out;
+      &:hover{
+          text-shadow: 0px 0px 2px white;
+      }
+    }
+  }
+  @each $footer-item in (__logo,__address,__phone) {
+    &#{$footer-item}{
+      text-align: center;
+    }
+  }
+   &-container{
+     margin-top: 60px;
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+   }
+
+  .top-button-block{
+    position: fixed;
+    bottom: 140px;
+    z-index: 9999;
+    right: 4%;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    .top-button{
+      width: 70px;
+      height: 70px;
+      background-color: black;
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 60px;
+      cursor: pointer;
+      opacity: 0.8;
+      transition: all 0.3s ease-in-out;
+      &:hover{
+        opacity: 1;
+      }
+      &::before{
+        font-family: FontAwesome;
+        font-size: 60px;
+        content: '\f106';
+      }
+    }
+  }
+}

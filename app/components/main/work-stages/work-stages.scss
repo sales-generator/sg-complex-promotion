@@ -1,0 +1,236 @@
+.work-stages{
+  @extend .guarantees;
+  margin: 0;
+  padding-top: 40px;
+  padding-bottom: 44px;
+  background-color: white;
+  counter-reset: stage;
+  &__title{
+    font-family: $headers-font-regular;
+    font-size: 28px;
+    text-align: center;
+    text-transform: uppercase;
+    color: rgb(51, 51, 51);
+    margin-top: 0;
+    font-weight: 600;
+    @include default-shadow;
+  }
+  .arrow-down{
+    display: block;
+    margin: auto;
+    width: 70px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+    &:hover{
+      transform: translateY(5px);
+      text-shadow: 0 0 25px rgb(142, 201, 255);
+    }
+    &::before{
+      font-family: FontAwesome;
+      content: '\f107';
+      color: black;
+      font-size: 65px;
+      font-weight: 100;
+      cursor: pointer;
+    }
+
+  }
+  .btn-block{
+    margin-top: 40px;
+    margin-bottom: 20px;
+    span{
+      margin: auto;
+      font-family: $primary-font;
+    }
+  }
+  .separatorbottom{
+    #bottom-triangle{
+      fill: rgba(3, 3, 3, 1);
+    }
+  }
+  .know-form{
+    margin-bottom: 44px;
+  }
+}
+
+.stage-count:not(:nth-child(2)) {
+  .stage{
+    margin-top: 0;
+  }
+}
+
+.stage-count:nth-child(2){
+  .stage{
+    margin-top: 30px;
+  }
+}
+
+.stages{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  color: rgb(51, 51, 51);
+  border-radius: 21px;
+  padding: 20px 0;
+  align-items: center;
+  margin-top: 27px;
+  &-links {
+   flex: 1 30%;
+    counter-reset: list;
+    &__item{
+      position: relative;
+      font-family: $headers-font-regular;
+      font-size: 17px;
+      color: rgb(137, 137, 137);
+      text-decoration: none !important;
+      border-top: 1px solid #e5e5e5;
+      border-right: 1px solid #e5e5e5;
+      border-left: 1px solid #e5e5e5;
+      height: 80px;
+      padding: 25px 10px 20px 10px;
+      transition: all 0.3s ease-in-out;
+      display: block;
+      @each $item in (2, 5) {
+        &:nth-child(#{$item}) {
+          p{
+            top: -10px;
+          }
+        }
+      }
+      p{
+        position: relative;
+        padding: 0 0 0 30px;
+        margin-top: 2px;
+        display: block;
+        vertical-align: middle;
+
+      }
+      &:last-child{
+        border-bottom: 1px solid #e5e5e5;
+      }
+      &::before{
+        position: absolute;
+        left: 10px;
+        color: black;
+        counter-increment: list;
+        content: "0"counter(list) ". ";
+        font-size: 18px;
+        font-family: $headers-font-bold;
+      }
+
+      &:hover{
+        background-color: #EBEBEB;
+        color: black;
+      }
+      &--active{
+        background-color: #EBEBEB;
+        border-right: none;
+        @each $item in (2, 5) {
+          &:nth-child(#{$item}) {
+            p{
+              &::after{
+                top: -18px;
+              }
+            }
+          }
+        }
+        p{
+          &::after{
+            position: absolute;
+            right: -40px;
+            top: -28px;
+            content: ' ';
+            width: 0px;
+            height: 0px;
+            border-top: 41px solid transparent;
+            border-bottom: 41px solid transparent;
+            border-left: 30px solid #e5e5e5;
+          }
+        }
+        &::after{
+          position: absolute;
+          right: -29px;
+          top: 0;
+          content: ' ';
+          width: 0px;
+          height: 0px;
+          border-top: 40px solid transparent;
+          border-bottom: 40px solid transparent;
+          border-left: 30px solid #EBEBEB;
+
+        }
+      }
+    }
+  }
+  &__description{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 70%;
+    height: 390px;
+    animation: fade-in 0.8s 1 linear;
+    &-wrapper{
+      background-color: rgb(255, 255, 255);
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 25px 15px;
+      color: rgb(51, 51, 51);
+      border-radius: 0px;
+      padding: 25px 15px;
+      width: 85%;
+    }
+    ul{
+      font-family: $headers-font-regular;
+      font-size: 17px;
+      margin: auto;
+      li{
+        margin-bottom: 5px;
+      }
+    }
+  }
+}
+
+.insurance{
+  margin-top: 70px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover; color: rgb(255, 255, 255);
+  border-radius: 0px;
+  background-image: url(../images/insurance.jpg);
+  &__title{
+    @extend  .work-stages__title;
+    color: white;
+    margin-top: 10px;
+  }
+  &__wrapper{
+    background-color: rgba(46, 46, 46, 0.92);
+    padding: 33px 60px;
+  }
+
+  &__block{
+    padding: 20px 0;
+    border: 1px solid white;
+  }
+  &__text{
+    font-family: $headers-font-regular;
+    font-size: 16px;
+    text-align: center;
+    line-height: 30px;
+    margin: 30px 0;
+  }
+}
+
+@keyframes fade-in {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes arrow-anim {
+  0% {left: 20px;}
+  50% {left: 30px;}
+  100% {left: 20px;}
+}
+
+@keyframes link-anim {
+  from {color: rgb(137, 137, 137);}
+  to {color: rgb(0, 114, 188);}
+}

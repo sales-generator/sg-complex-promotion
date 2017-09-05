@@ -1,0 +1,162 @@
+@import "./../../components/main/guarantees/guarantees";
+@import "./../../components/main/work-stages/work-stages";
+@import "./../../components/main/what-do-you-get/what-do-you-get";
+@import "./../../components/main/recomendations/recomendations";
+@import "./../../components/main/clients-words/clients-words";
+@import "./../../components/main/facts/facts";
+@import "./../../components/main/bring-clients/bring-clients";
+@import "./../../components/main/key-digits/key-digits";
+@import "./../../components/main/approach/approach";
+
+.main{
+  margin: 40px 0 0 0;
+}
+
+/*Result block START*/
+.results{
+  @extend .work-stages;
+  position: relative;
+  background-color: white;
+
+  .btn{
+    display: block;
+    margin: 26px auto 0 auto;
+  }
+  .slick-dots li button::before{
+    content: '\f111';
+    font-size: 20px;
+  }
+  .slick-prev:before {
+    font-family: FontAwesome;
+    content: '\f104';
+    color: black;
+  }
+  .slick-next:before{
+    font-family: FontAwesome;
+    content: '\f105';
+    color: black;
+  }
+  .slick{
+    @each $arrow in (-next, -prev) {
+      &#{$arrow}::before {
+        opacity: 0.3;
+        transition: opacity 0.3s ease-in-out;
+      }
+      &#{$arrow}:hover::before{
+        opacity: 1;
+      }
+    }
+
+    &-next{
+      right: 1px;
+      position: absolute;
+      z-index: 1;
+    }
+    &-prev{
+      left: 1px;
+      position: absolute;
+      z-index: 1;
+    }
+  }
+
+  &__title{
+    @extend .work-stages__title;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+  &__subtitle{
+    font-family: $headers-font-regular;
+    font-size: 17px;
+    text-align: center;
+    font-weight: 600;
+    span{
+      color: rgb(0, 118, 164);
+      font-family: $headers-font-regular;
+    }
+  }
+  &-info{
+    &__row{
+      @extend .guarantees-info;
+      flex-flow: row;
+      justify-content: space-between;
+      width: 100%;
+      justify-content: center;
+      margin: 0;
+    }
+    &__column{
+      display: flex;
+      flex-flow: column;
+      width: 90%;
+      padding: 20px 0 0 0;
+      margin: 0;
+      cursor: zoom-in;
+      &__item{
+        width: 100%;
+        margin-bottom: 5px;
+        padding-bottom: 25px;
+        img{
+          width: 100%;
+          box-shadow: 0 6px 25px 15px rgba(0,0,0,.1);
+          transition: all 0.3s ease-in-out;
+          &:hover{
+            box-shadow: 0 6px 25px 15px rgba(0,0,0,.2);
+          }
+        }
+      }
+    }
+  }
+  .know-form{
+    &__title{
+      margin: 25px 0 25px 0;
+    }
+  }
+  .separatorbottom{
+    #bottom-triangle{
+      fill: rgb(236, 236, 236);
+    }
+  }
+}
+/*Result block END*/
+
+.submit-btn{
+  padding: 0 28px !important;
+  margin-left: 15px !important;
+}
+
+@media screen and (min-width: 1501px){
+  .header{
+    &__content{
+      padding: 200px 0 183px 0;
+      &-text:first-of-type{
+        margin-top: 40px;
+      }
+    }
+  }
+  .header-content-background{
+    /*background-position: center center;*/
+    background-size: cover;
+    background-position: 50% 27%;
+  }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1500px){
+  .header{
+    &__content{
+      padding: 200px 0 183px 0;
+    }
+  }
+  .header-content-background{
+    background-position: center center;
+    background-size: cover;
+  }
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1680px){
+  .header{
+    &__content{
+      &-text{
+        display: none;
+      }
+    }
+  }
+}

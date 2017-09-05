@@ -1,0 +1,50 @@
+.recomendations{
+  @extend .guarantees;
+  margin: 0;
+  padding-top: 40px;
+  background-color: white;
+  .btn-block{
+    margin-top: 0;
+  }
+  &-info{
+    @extend .guarantees-info;
+    margin: 40px 0 38px 0;
+    flex-flow: row wrap;
+    &__item{
+      @extend .guarantees-info__item;
+      width: 30%;
+      img{
+        width: 82px;
+        height: 82px;
+      }
+      h4::after{
+        content: " ";
+        display: block;
+        width: 55%;
+        height: 2px;
+        margin: 15px auto 10px;
+        background-color: rgb(96, 181, 126);
+      }
+      &:nth-child(4) {
+        p{
+          width: 109%;
+          margin-left: -4.5%;
+        }
+      }
+    }
+    @for $item from 1 through 3 {
+      &__item:nth-child(#{$item}){
+        margin-bottom: 36px;
+      }
+    }
+  }
+  &__title{
+    @extend .work-stages__title;
+  }
+  .separatorbottom{
+    #bottom-triangle{
+      fill: #E0E0E0;
+    }
+  }
+
+}

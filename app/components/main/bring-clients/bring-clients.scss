@@ -1,0 +1,60 @@
+.b-clients{
+  @extend .guarantees;
+  margin: 0;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  background-image: radial-gradient(rgb(255, 255, 255) 0%, #E0E0E0 72%);
+  color: rgb(51, 51, 51);
+  &__block{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+  }
+  &__text{
+    width: 55%;
+    font-size: 16px;
+    padding: 0 20px;
+    text-align: center;
+    font-weight: 400;
+    font-family: $headers-font-regular;
+    a{
+      color: rgb(51, 51, 51);
+    }
+    p:last-child{
+      font-size: 17px;
+      margin-bottom: 40px;
+      font-family: $headers-font-regular;
+      font-weight: 600;
+    }
+  }
+  &__title{
+    @extend .work-stages__title;
+  }
+  .separatorbottom{
+    #bottom-triangle{
+      fill: white;
+    }
+  }
+
+  .know-form{
+    display: block;
+    width: 30%;
+    margin: 0;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    input[type="text"]{
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    input[type=button]{
+      width: 50%;
+    }
+    .submit-btn{
+      padding: 0 !important;
+      margin-left: 0 !important;
+    }
+  }
+}

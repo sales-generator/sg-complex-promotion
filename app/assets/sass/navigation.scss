@@ -1,0 +1,62 @@
+.nav{
+  display: flex;
+  flex-direction: row;
+  /*justify-content: space-between;*/
+  align-items: center;
+  padding: 10px 0;
+  &__logo {
+    transition: all 0.3s ease-in-out;
+    flex: 1 15%;
+    img{
+      width: 200px;
+      height: 61px;
+    }
+    &:hover{
+      transform: scale(1.05);
+    }
+  }
+  &__title{
+    font-size: 20px;
+    color: white;
+    flex: 1 30%;
+    font-family: $headers-font-bold;
+    align-self: flex-start;
+    position: relative;
+    text-align: center;
+  }
+  &__tel{
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    align-self: center;
+    display: block;
+    position: relative;
+    flex: 1 20%;
+    font-size: 22px;
+    margin-left: auto;
+    width: 20%;
+    text-align: center;
+    font-weight: 600;
+    &::before{
+      position: absolute;
+      font-family: FontAwesome;
+      content: '\f095';
+      color: white;
+      padding-right: 10px;
+      font-weight: 100;
+      left: 45px;
+      top: 10px;
+    }
+    a{
+      display: block;
+      color: white;
+      font-size: 17px;
+      text-decoration: none;
+      transition: all 0.3s ease-in-out;
+      &:hover{
+        opacity: 0.8;
+        color: white;
+        text-decoration: none;
+      }
+    }
+  }
+
+}
