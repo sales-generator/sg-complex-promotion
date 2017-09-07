@@ -31,37 +31,37 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!empty($arrRequest)) {
      switch ($arrRequest['form-name']) {
       case 'callback':
-       $mail->Subject = 'Лендинг(Complex-promotion) заказ аудита - обратный звонок "Комплексное продвиженике"';
+       $mail->Subject = 'Лендинг КП - заказать звонок"';
        $mail->Body = '<div><p>Имя клиента: '.$arrRequest['name'].'</p><p>Номер телефона: '.$arrRequest['phone'].'</p><p>Комментарий: '.$arrRequest['comment'].'</p></div>';
        $mail->send();
        echo json_encode(["response" => true]);
              break;
        case 'know-default':
-           $mail->Subject = 'Лендинг(Complex-promotion) узнать сколько клиентов мы можем привести Вам на сайт - "Комплексное продвиженике"';
+           $mail->Subject = 'Лендинг КП - узнать, сколько клиентов я получу';
            $mail->Body = '<div><p>Имя клиента: '.$arrRequest['name'].'</p><p>Номер телефона: '.$arrRequest['phone'].'</p><p>Комментарий: '.$arrRequest['comment'].'</p></div>';
            $mail->send();
            echo json_encode(["response" => true]);
            break;
        case 'contract-order':
-           $mail->Subject = 'Лендинг(Complex-promotion) заказ примера договора из комплексного продвижения';
+           $mail->Subject = 'Лендинг КП - скачать пример договора';
            $mail->Body = '<div><p>Электронная почта клиента: '.$arrRequest['email'].'</p><p>Номер телефона: '.$arrRequest['phone'].'</p></div>';
            $mail->send();
            echo json_encode(["response" => true]);
              break;
        case 'work-plan-order':
-           $mail->Subject = 'Лендинг(Complex-promotion) заказ примера плана работ из комплексного продвижения';
+           $mail->Subject = 'Лендинг КП - план работ на 2 месяца';
            $mail->Body = '<div><p>Электронная почта клиента: '.$arrRequest['email'].'</p><p>Номер телефона: '.$arrRequest['phone'].'</p></div>';
            $mail->send();
            echo json_encode(["response" => true]);
              break;
          case 'report-order':
-             $mail->Subject = 'Лендинг(Complex-promotion) заказ примера нашего отчета - "Комплексное продвижение"';
+             $mail->Subject = 'Лендинг КП - пример нашего отчёта';
              $mail->Body = '<div><p>Электронная почта клиента: '.$arrRequest['email'].'</p><p>Номер телефона: '.$arrRequest['phone'].'</p></div>';
              $mail->send();
              echo json_encode(["response" => true]);
              break;
          case 'know-bottom':
-             $mail->Subject = 'Лендинг(Complex-promotion) заказ аудита - Футер "Комплексное продвиженике"';
+             $mail->Subject = 'Лендинг КП - получить персональное предложение';
              $mail->Body = '<div><p>Имя клиента: '.$arrRequest['name'].'</p><p>Номер телефона: '.$arrRequest['phone'].'</p></div>';
              $mail->send();
            echo json_encode(["response" => true]);
