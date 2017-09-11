@@ -13,6 +13,7 @@ class WorkInsurance extends React.Component{
         this.props.workPlanShow(true);
         this.props.showModal(true);
         yaCounter44418460.reachGoal('PLAN_RABOT');
+        ga('send', 'event', 'work-plan-kp', 'send-work-plan-kp');
     }
     render() {
         return (

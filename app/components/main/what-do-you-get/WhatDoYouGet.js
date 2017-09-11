@@ -19,6 +19,7 @@ class WhatDoYouGet extends Component{
         this.props.showModal(true);
         this.props.reportShow(true);
         yaCounter44418460.reachGoal('PRIMER_OTCHETA');
+        ga('send', 'event', 'example-report-kp', 'send-example-report');
     }
 
     render() {

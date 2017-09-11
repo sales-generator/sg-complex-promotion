@@ -15,6 +15,7 @@ class BringClients extends React.Component{
 
         this.props.sendClientsCallback(formData);
         yaCounter44418460.reachGoal('POLUCHIT_PREDLOJENIE');
+        ga('send', 'event', 'get-offer', 'send-get-offer');
     }
 
     clientsNotification() {

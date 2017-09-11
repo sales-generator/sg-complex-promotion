@@ -13,6 +13,7 @@ class HeaderContent extends Component{
         this.props.showKnowDefaultForm(true);
         this.props.showModal(true);
         yaCounter44418460.reachGoal('SKOLKO_KLIENTOV');
+        ga('send', 'event', 'know-clients-kp', 'send-know-klients-kp');
     }
 
     render() {

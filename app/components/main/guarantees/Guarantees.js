@@ -15,6 +15,7 @@ class Guarantees extends React.Component{
         this.props.contractShow(true);
         this.props.showModal(true);
         yaCounter44418460.reachGoal('SKACHAT_PRIMER');
+        ga('send', 'event', 'example-contract', 'send-example-contract');
     }
 
     callPopupHandler() {
