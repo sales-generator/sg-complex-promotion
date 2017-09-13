@@ -10,7 +10,8 @@ import {
     CONTRACT_FORM,
     WORK_PLAN_FORM,
     REPORT_FORM,
-    KNOW_DEFAULT_FORM
+    KNOW_DEFAULT_FORM,
+    KNOW_RESULT_FORM
 } from '../actions/index';
 
 const initialState = {
@@ -28,11 +29,15 @@ const initialState = {
     workPlan: false,
     knowDefault: false,
     report: false,
-    windowPosition: null
+    windowPosition: null,
+    knowResult: false,
 };
 
 const salesReducer =  ( state = initialState, action) => {
     switch (action.type) {
+        case KNOW_RESULT_FORM:
+            return Object.assign({}, state, {knowResult: action.show});
+            break;
         case KNOW_DEFAULT_FORM:
             return Object.assign({}, state, {knowDefault: action.show});
             break;

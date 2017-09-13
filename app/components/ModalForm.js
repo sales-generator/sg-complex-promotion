@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {showModal, sendCallback, nullCallbacks, contractShow, workPlanShow, reportShow, showKnowDefaultForm} from '../actions/index';
+import {showModal, sendCallback, nullCallbacks, contractShow, workPlanShow, reportShow, showKnowDefaultForm, showKnowResultForm} from '../actions/index';
 import { bindActionCreators } from 'redux';
 import MaskedInput from 'react-maskedinput';
 
@@ -72,6 +72,12 @@ class ModalForm extends Component{
             formData['phone'] = this.refs['phone'].mask.getValue();
             formData['comment'] = this.refs['comment'].value;
             this.props.sendCallback(formData);
+        } else if (this.props.formState.knowResult) {
+            formData = {'form-name': 'know-result'};
+            formData['name'] = this.refs['name'].value;
+            formData['phone'] = this.refs['phone'].mask.getValue();
+            formData['comment'] = this.refs['comment'].value;
+            this.props.sendCallback(formData);
         } else {
             formData['name'] = this.refs['name'].value;
             formData['phone'] = this.refs['phone'].mask.getValue();
@@ -90,6 +96,10 @@ class ModalForm extends Component{
             for (let field in this.refs) {
                 this.refs[field].value = '';
             }
+        } else if (this.props.formState.knowResult){
+            for (let field in this.refs) {
+                this.refs[field].value = '';
+            }
         } else {
             this.refs['name'].value = '';
             this.refs['phone'].mask.setValue('');
@@ -101,6 +111,7 @@ class ModalForm extends Component{
         this.props.workPlanShow(false);
         this.props.reportShow(false);
         this.props.showKnowDefaultForm(false);
+        this.props.showKnowResultForm(false);
 
     }
 
@@ -175,6 +186,24 @@ class ModalForm extends Component{
                     </form>
                 </div>
             )
+        } if (this.props.formState.knowResult){
+            return(
+                <div className="popup-form">
+                    <div className="popup-form__close" onClick={this.closeModalHandler.bind(this)}>&times;</div>
+                    <p>Узнать сколько клиентов мы можем привести Вам на сайт</p>
+                    {this.mailNotification()}
+                    <form className="form-group" onClick={this.formClickHandler.bind(this)} onSubmit={this.btnSubmitHandler.bind(this)}>
+                        <label>Как к Вам обращаться?<span>*</span></label>
+                        <input  type="text" ref="name" name="name" className="form-control" placeholder="Иванов Иван Иванович" required/>
+                        <label>Телефон <span>*</span></label>
+                        <MaskedInput  mask="+7(111) 111 11 11" type="text" ref="phone" name="phone" required="true" className="form-control"/>
+                        <label>Комментарий</label>
+                        <textarea className="form-control" name="comment" ref="comment" placeholder="Мой сайт www.mysite.ru. Прошу связаться со мной в 14:30."></textarea>
+                        {this.personalAgreement()}
+                        <input type="submit" value='Отправить заявку' className="btn"/>
+                    </form>
+                </div>
+            )
         } else {
             return(
                 <div className="popup-form">
@@ -211,7 +240,7 @@ const mapStateToProps = (store) => {
 };
 
 const mapDispatchToProps = dispatch => {
-    return bindActionCreators({showModal, sendCallback, nullCallbacks, contractShow, workPlanShow, reportShow, showKnowDefaultForm}, dispatch);
+    return bindActionCreators({showModal, sendCallback, nullCallbacks, contractShow, workPlanShow, reportShow, showKnowDefaultForm, showKnowResultForm}, dispatch);
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ModalForm);

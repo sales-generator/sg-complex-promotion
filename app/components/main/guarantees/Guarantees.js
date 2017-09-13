@@ -1,5 +1,5 @@
 import React from 'react';
-import {showModal, contractShow} from '../../../actions/index';
+import {showModal, contractShow, showKnowResultForm} from '../../../actions/index';
 import { bindActionCreators } from 'redux';
 import {connect} from 'react-redux';
 import ScrollableAnchor from 'react-scrollable-anchor';
@@ -20,6 +20,7 @@ class Guarantees extends React.Component{
 
     callPopupHandler() {
         this.props.showModal(true);
+        this.props.showKnowResultForm(true);
     }
     render() {
         return(
@@ -61,7 +62,7 @@ const mapStateToProps = (store) => {
 };
 
 const mapDispatchToProps = dispatch => {
-    return bindActionCreators({showModal, contractShow}, dispatch);
+    return bindActionCreators({showModal, contractShow, showKnowResultForm}, dispatch);
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Guarantees);

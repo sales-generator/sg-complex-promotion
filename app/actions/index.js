@@ -14,7 +14,15 @@ export const REPORT_FORM = 'REPORT_FORM';
 export const SET_WINDOW_POS = 'SET_WINDOW_POS';
 export const SET_APPROACH_ITEM = 'SET_APPROACH_ITEM';
 export const KNOW_DEFAULT_FORM = 'KNOW_DEFAULT_FORM';
+export const KNOW_RESULT_FORM = 'KNOW_RESULT_FORM';
 /*ACTIONS*/
+
+export const showKnowResultForm = (isShow) => {
+    return{
+        type: KNOW_RESULT_FORM,
+        show: isShow
+    }
+};
 
 export const showKnowDefaultForm = (isShow) => {
     return{

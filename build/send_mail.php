@@ -42,6 +42,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
            $mail->send();
            echo json_encode(["response" => true]);
            break;
+         case 'know-result':
+             $mail->Subject = 'Лендинг КП - иконки на экране гарантии';
+             $mail->Body = '<div><p>Имя клиента: '.$arrRequest['name'].'</p><p>Номер телефона: '.$arrRequest['phone'].'</p><p>Комментарий: '.$arrRequest['comment'].'</p></div>';
+             $mail->send();
+             echo json_encode(["response" => true]);
+             break;
        case 'contract-order':
            $mail->Subject = 'Лендинг КП - скачать пример договора';
            $mail->Body = '<div><p>Электронная почта клиента: '.$arrRequest['email'].'</p><p>Номер телефона: '.$arrRequest['phone'].'</p></div>';
