@@ -8,7 +8,7 @@ class ModalForm extends Component{
     personalAgreement() {
         return (
             <div className="personal-data">
-                <input type="checkbox" className="form-control" required defaultChecked/><p>Согласен на обработку <a href="https://sales-generator.ru/Politika-konfidencialnosti.pdf">персональных данных</a></p>
+                <p>Нажимая на кнопку, даю согласие на обработку <a href="https://sales-generator.ru/Politika-konfidencialnosti.pdf">персональных данных</a></p>
             </div>
         );
     }
