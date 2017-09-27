@@ -17,6 +17,9 @@ class BringClients extends React.Component{
         yaCounter44418460.reachGoal('POLUCHIT_PREDLOJENIE');
         ga('send', 'event', 'get-offer', 'send-get-offer');
     }
+    allBtnSend(e) {
+        yaCounter44418460.reachGoal('ALL_BTN_SEND');
+    }
 
     clientsNotification() {
         let response = this.props.formState.clientsResp;
@@ -58,7 +61,7 @@ class BringClients extends React.Component{
                                     <MaskedInput mask="+7(111) 111 11 11" type="text" ref="phone" className="form-control" placeholder="Телефон *"  required/>
                                 }
                                 <ScrollableAnchor id={'how-many-clients'}>
-                                    <input type="submit" className="btn submit-btn"  value="Получить персональное предложение"/>
+                                    <input type="submit" className="btn submit-btn"  value="Получить персональное предложение" onClick={this.allBtnSend.bind(this)}/>
                                 </ScrollableAnchor>
                             </form>
                         </div>

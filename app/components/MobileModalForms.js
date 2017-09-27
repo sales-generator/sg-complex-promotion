@@ -118,6 +118,10 @@ class MobileModalForms extends Component{
         e.stopPropagation();
         this.props.showModal(true);
     }
+    targetBtnSend (e) {
+        yaCounter44418460.reachGoal('ALL_BTN_SEND');
+        return true;
+    }
     formVariants() {
         if (this.props.formState.contract) {
             return(
@@ -131,7 +135,7 @@ class MobileModalForms extends Component{
                         <label>Телефон <span>*</span></label>
                         <input placeholder="+7(___) ___ __ __"  type="text" ref="phone" name="phone" required="true" className="form-control"/>
                         {this.personalAgreement()}
-                        <input type="submit" value='Отправить заявку' className="btn"/>
+                        <input type="submit" value='Отправить заявку' className="btn" onClick={this.targetBtnSend.bind(this)}/>
                     </form>
                 </div>
             )
@@ -147,7 +151,7 @@ class MobileModalForms extends Component{
                         <label>Телефон <span>*</span></label>
                         <input placeholder="+7(___) ___ __ __"  type="text" ref="phone" name="phone" required="true" className="form-control"/>
                         {this.personalAgreement()}
-                        <input type="submit" value='Отправить заявку' className="btn"/>
+                        <input type="submit" value='Отправить заявку' className="btn" onClick={this.targetBtnSend.bind(this)}/>
                     </form>
                 </div>
             )
@@ -163,7 +167,7 @@ class MobileModalForms extends Component{
                         <label>Телефон <span>*</span></label>
                         <input placeholder="+7(___) ___ __ __"  type="text" ref="phone" name="phone" required="true" className="form-control"/>
                         {this.personalAgreement()}
-                        <input type="submit" value='Отправить заявку' className="btn"/>
+                        <input type="submit" value='Отправить заявку' className="btn" onClick={this.targetBtnSend.bind(this)}/>
                     </form>
                 </div>
             )
@@ -185,7 +189,7 @@ class MobileModalForms extends Component{
                         <textarea className="form-control" name="comment" ref="comment"
                                   placeholder="Мой сайт www.mysite.ru. Прошу связаться со мной в 14:30."></textarea>
                         {this.personalAgreement()}
-                        <input type="submit" value='Отправить заявку' className="btn"/>
+                        <input type="submit" value='Отправить заявку' className="btn" onClick={this.targetBtnSend.bind(this)}/>
                     </form>
                 </div>
             )
@@ -203,7 +207,7 @@ class MobileModalForms extends Component{
                             <label>Комментарий</label>
                             <textarea className="form-control" name="comment" ref="comment" placeholder="Мой сайт www.mysite.ru. Прошу связаться со мной в 14:30."></textarea>
                             {this.personalAgreement()}
-                            <input type="submit" value='Отправить заявку' className="btn"/>
+                            <input type="submit" value='Отправить заявку' className="btn" onClick={this.targetBtnSend.bind(this)}/>
                         </form>
                     </div>
                 )
@@ -221,7 +225,7 @@ class MobileModalForms extends Component{
                         <label>Комментарий</label>
                         <textarea className="form-control" name="comment" ref="comment" placeholder="Мой сайт www.mysite.ru. Прошу связаться со мной в 14:30."></textarea>
                         {this.personalAgreement()}
-                        <input type="submit" value='Отправить заявку' className="btn"/>
+                        <input type="submit" value='Отправить заявку' className="btn" onClick={this.targetBtnSend.bind(this)}/>
                     </form>
                 </div>
             )
