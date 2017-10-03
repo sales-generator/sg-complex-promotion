@@ -70,7 +70,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
              $mail->Subject = 'Лендинг КП - получить персональное предложение';
              $mail->Body = '<div><p>Имя клиента: '.$arrRequest['name'].'</p><p>Номер телефона: '.$arrRequest['phone'].'</p></div>';
              $mail->send();
-           echo json_encode(["response" => true]);
+             echo json_encode(["response" => true]);
+             break;
+         case 'consultation-experts':
+             $mail->Subject = 'Лендинг КП - получить консультацию экспертов';
+             $mail->Body = '<div><p>Имя клиента: '.$arrRequest['name'].'</p><p>Номер телефона: '.$arrRequest['phone'].'</p><p>Комментарий: '.$arrRequest['comment'].'</p></div>';
+             $mail->send();
+             echo json_encode(["response" => true]);
              break;
      }
     } else {

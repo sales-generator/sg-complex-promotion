@@ -10,6 +10,7 @@ import Facts from './facts/Facts';
 import BringClients from './bring-clients/BringClients';
 import KeyDigits from './key-digits/KeyDigits';
 import Approach from './approach/Approach';
+import Staff from '../Staff';
 
 class Main extends Component{
     render() {
@@ -23,6 +24,7 @@ class Main extends Component{
                <KeyDigits/>
                <Recomendations/>
                <ClientsWords/>
+               <Staff/>
                <Facts/>
                <BringClients/>
            </main>

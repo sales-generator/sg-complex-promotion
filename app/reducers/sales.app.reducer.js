@@ -11,7 +11,8 @@ import {
     WORK_PLAN_FORM,
     REPORT_FORM,
     KNOW_DEFAULT_FORM,
-    KNOW_RESULT_FORM
+    KNOW_RESULT_FORM,
+    CONSULTATION_EXPERTS_FORM
 } from '../actions/index';
 
 const initialState = {
@@ -31,10 +32,14 @@ const initialState = {
     report: false,
     windowPosition: null,
     knowResult: false,
+    consultationExperts: false
 };
 
 const salesReducer =  ( state = initialState, action) => {
     switch (action.type) {
+        case CONSULTATION_EXPERTS_FORM:
+            return Object.assign({}, state, {consultationExperts: action.show});
+            break;
         case KNOW_RESULT_FORM:
             return Object.assign({}, state, {knowResult: action.show});
             break;

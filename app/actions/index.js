@@ -15,7 +15,15 @@ export const SET_WINDOW_POS = 'SET_WINDOW_POS';
 export const SET_APPROACH_ITEM = 'SET_APPROACH_ITEM';
 export const KNOW_DEFAULT_FORM = 'KNOW_DEFAULT_FORM';
 export const KNOW_RESULT_FORM = 'KNOW_RESULT_FORM';
+export const CONSULTATION_EXPERTS_FORM = 'CONSULTATION_EXPERTS_FORM';
 /*ACTIONS*/
+
+export const showConsultationExpertsForm = (isShow) => {
+    return{
+        type: CONSULTATION_EXPERTS_FORM,
+        show: isShow
+    }
+};
 
 export const showKnowResultForm = (isShow) => {
     return{

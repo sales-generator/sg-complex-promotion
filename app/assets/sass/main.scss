@@ -94,7 +94,7 @@
         width: 100%;
         margin-bottom: 5px;
         padding-bottom: 25px;
-        img{
+        img {
           width: 100%;
           box-shadow: 0 6px 25px 15px rgba(0,0,0,.1);
           transition: all 0.3s ease-in-out;
@@ -117,6 +117,123 @@
   }
 }
 /*Result block END*/
+
+/*Staff block START*/
+.staff{
+  @extend .work-stages;
+  position: relative;
+  background-color: white;
+  .btn{
+    display: block;
+    margin: 26px auto 0 auto;
+  }
+  .slick-dots li button::before{
+    content: '\f111';
+    font-size: 20px;
+  }
+  .slick-prev:before {
+    font-family: FontAwesome;
+    content: '\f104';
+    color: black;
+  }
+  .slick-next:before{
+    font-family: FontAwesome;
+    content: '\f105';
+    color: black;
+  }
+  .slick{
+    @each $arrow in (-next, -prev) {
+      &#{$arrow}::before {
+        opacity: 0.3;
+        transition: opacity 0.3s ease-in-out;
+      }
+      &#{$arrow}:hover::before{
+        opacity: 1;
+      }
+    }
+
+    &-next{
+      right: 1px;
+      position: absolute;
+      z-index: 1;
+    }
+    &-prev{
+      left: 1px;
+      position: absolute;
+      z-index: 1;
+    }
+  }
+
+  &__title{
+    @extend .work-stages__title;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+  &__subtitle{
+    font-family: $headers-font-regular;
+    font-size: 17px;
+    text-align: center;
+    font-weight: 600;
+    span{
+      color: rgb(0, 118, 164);
+      font-family: $headers-font-regular;
+    }
+  }
+  &-info{
+    &__row{
+      @extend .guarantees-info;
+      flex-flow: row;
+      justify-content: space-between;
+      width: 100%;
+      justify-content: center;
+      margin: 0;
+    }
+    &__column{
+      display: flex;
+      flex-flow: column;
+      width: 90%;
+      padding: 20px 0 0 0;
+      margin: 0;
+      &__item{
+        width: 100%;
+        margin-bottom: 5px;
+        padding-bottom: 25px;
+        display: flex;
+        flex-direction: row;
+        img{
+          width: 70%;
+          transition: all 0.3s ease-in-out;
+          margin: auto;
+        }
+      }
+    }
+  }
+  .know-form{
+    &__title{
+      margin: 25px 0 25px 0;
+    }
+  }
+  .separatorbottom{
+    #bottom-triangle{
+      fill: rgb(236, 236, 236);
+    }
+  }
+  &__img {
+    width: 40%;
+  }
+  &__description {
+    width: 60%;
+    padding-top: 20px;
+    font-family: $headers-font-regular;
+    h2 {
+      font-family: $headers-font-bold;
+    }
+    button {
+      margin: 26px 0 0!important;
+    }
+  }
+}
+/*Staff block END*/
 
 .submit-btn{
   padding: 0 28px !important;
