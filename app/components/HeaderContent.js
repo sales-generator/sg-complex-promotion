@@ -25,6 +25,7 @@ class HeaderContent extends Component{
                         <h3 className="header__content-subtitle">Гарантированно приведем на Ваш сайт тысячи новых клиентов</h3>
                         <button className="btn" onClick={this.openKnowFormHandler}>Узнать, сколько клиентов я получу</button>
                     </div>
+                    <a href="#guarantees" className="scroll_down"></a>
                 </div>
             </section>
         );

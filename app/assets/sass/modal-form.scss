@@ -15,7 +15,7 @@
     padding: 20px;
     background: #fff;
     border-radius: 5px;
-    width: 30%;
+    width: 45%;
     position: relative;
     transition: all 5s ease-in-out;
     animation: formBlockAnim 0.3s 1 linear;
@@ -35,9 +35,8 @@
     }
     &__close{
       position: absolute;
-      top: 0px;
+      top: 0;
       right: 10px;
-      transition: all 200ms;
       font-size: 30px;
       font-weight: bold;
       text-decoration: none;
@@ -45,6 +44,7 @@
       cursor: pointer;
       font-family: $headers-font-bold;
       transition: color 0.3s ease-in-out;
+      z-index: 2;
       &:hover{
         color: black;
       }

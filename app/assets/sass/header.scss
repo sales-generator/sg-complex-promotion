@@ -50,4 +50,25 @@ $header-text-color: rgb(255, 255, 255);
   color: $header-text-color;
   background-color: black;
 }
+.scroll_down {
+  display: block;
+  position: absolute;
+  width: 27px;
+  height: 52px;
+  background: url(../images/scroll_down.png) no-repeat;
+  left: 50%;
+  top: 80%;
+  margin-left: -13px;
+  bottom: 210px;
+  opacity: .9;
+  -webkit-transition: .3s;
+  transition: .3s;
+  z-index: 10;
+}
+.scroll_down:hover {
+  -webkit-transform: translateY(5px);
+  transform: translateY(5px);
+  opacity: 1;
+}
+
 

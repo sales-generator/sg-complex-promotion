@@ -51,14 +51,14 @@ export const setWindowPos = (value) => {
         type: SET_WINDOW_POS,
         position: value
     }
-}
+};
 
 export const reportShow = (value) => {
     return {
         type: REPORT_FORM,
         show: value
     }
-}
+};
 
 
 export const workPlanShow = (value) => {

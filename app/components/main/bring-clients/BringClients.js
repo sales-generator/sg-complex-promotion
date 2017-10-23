@@ -4,6 +4,7 @@ import {sendClientsCallback} from '../../../actions/index';
 import { bindActionCreators } from 'redux';
 import MaskedInput from 'react-maskedinput';
 import ScrollableAnchor from 'react-scrollable-anchor';
+import Iframe from 'react-iframe';
 
 class BringClients extends React.Component{
 
@@ -54,16 +55,14 @@ class BringClients extends React.Component{
                                 </p>
                                 <p>Это бесплатно и ни к чему Вас не обязывает</p>
                             </div>
-                            <form className="form-group know-form" onSubmit={this.btnSubmitHandler.bind(this)}>
-                                <input className="form-control" placeholder="Имя *" type="text" ref="name" required/>
-                                {screen.width < 1024 ?
-                                    <input placeholder="+7(___) ___ __ __"  type="text" ref="phone" name="phone" required="true" className="form-control"/> :
-                                    <MaskedInput mask="+7(111) 111 11 11" type="text" ref="phone" className="form-control" placeholder="Телефон *"  required/>
-                                }
-                                <ScrollableAnchor id={'how-many-clients'}>
-                                    <input type="submit" className="btn submit-btn"  value="Получить персональное предложение" onClick={this.allBtnSend.bind(this)}/>
-                                </ScrollableAnchor>
-                            </form>
+
+                                <Iframe url="https://gpro.bitrix24.ru/pub/form.php?view=frame&form_id=33&widget_user_lang=ru&sec=sxj6a8&r=1507902041823#%7B%22domain%22%3A%22http%3A%2F%2Flocalhost%3A63342%22%2C%22from%22%3A%22http%3A%2F%2Flocalhost%3A63342%2F13%2F123456.html%3F_ijt%3Dcuq28k4k1nra85ilkelku3hr7r%22%7D"
+                                        width="560px"
+                                        height="545px"
+                                        display="initial"
+                                        position="relative"
+                                        allowFullScreen/>
+
                         </div>
                     </div>
             </section>
