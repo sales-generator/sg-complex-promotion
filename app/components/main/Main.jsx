@@ -11,8 +11,28 @@ import BringClients from './bring-clients/BringClients';
 import KeyDigits from './key-digits/KeyDigits';
 import Approach from './approach/Approach';
 import Staff from '../Staff';
+import {connect} from 'react-redux';
+import { bindActionCreators } from 'redux';
+import Banner from './banner/Banner.jsx';
+import {showBanner} from '../../actions/index';
 
 class Main extends Component{
+
+    componentDidMount() {
+        let that = this, currentDate = new Date(),
+            dateDifference = Math.abs(currentDate.getTime() - parseInt(window.localStorage.getItem('banner')));
+        dateDifference = (Math.round(dateDifference) / 86400000).toFixed();
+        window.addEventListener('scroll', () => {
+            if(!this.props.banner && (!window.localStorage.getItem('banner') || parseInt(dateDifference) >= 7)) {
+                if(this.props.windowPosition > 1500 && this.props.windowPosition < 1750) {
+                    setTimeout(()=> {
+                        that.props.showBanner(true);
+                    }, 5000);
+                }
+            }
+        });
+    }
+
     render() {
         return(
            <main className="main">
@@ -27,10 +47,22 @@ class Main extends Component{
                <Staff/>
                <Facts/>
                <BringClients/>
+               {this.props.banner ? <Banner/> : null}
            </main>
         )
     };
 }
 
-export default Main;
+const mapStateToProps = (store) => {
+    return {
+        windowPosition: store.salesReducer.windowPosition,
+        banner: store.salesReducer.showBanner
+    }
+};
+
+const mapDispatchToProps = dispatch => {
+    return bindActionCreators({showBanner}, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);
 
