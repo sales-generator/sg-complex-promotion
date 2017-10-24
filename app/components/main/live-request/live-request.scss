@@ -1,0 +1,28 @@
+.live-request{
+  position: absolute;
+  right: 10%;
+  bottom: 10%;
+  width: 200px;
+  height: 200px;
+  border: 3px dashed #00bff3;
+  padding: 15px;
+  border-radius: 50%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  &__text{
+    text-align: center;
+    display: block;
+    font-family: $headers-font-regular;
+    font-size: 17px;
+    font-weight: 100;
+    color: white;
+    margin: 0;
+    span{
+      color: #00bff3;
+      text-transform: uppercase;
+    }
+  }
+}

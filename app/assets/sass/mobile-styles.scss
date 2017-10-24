@@ -1,6 +1,10 @@
 @media screen and (min-width: 320px) and (max-width: 500px) {
   @import "iframe";
 
+  .live-request{
+    display: none;
+  }
+
   .btn--callback{
     margin-left: 0px;
     margin-top: 20px;
