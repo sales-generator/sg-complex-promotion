@@ -414,3 +414,23 @@
     display: none;
   }
 }
+
+@media screen and (min-width: 1280px) and (max-width: 1400px) {
+  .popup-overlay{
+    .popup-form{
+      &--banner{
+        width: 75%;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1600px) and (max-width: 1800px) {
+  .popup-overlay{
+    .popup-form{
+      &--banner{
+        width: 56%;
+      }
+    }
+  }
+}

@@ -16,7 +16,15 @@ export const SET_APPROACH_ITEM = 'SET_APPROACH_ITEM';
 export const KNOW_DEFAULT_FORM = 'KNOW_DEFAULT_FORM';
 export const KNOW_RESULT_FORM = 'KNOW_RESULT_FORM';
 export const CONSULTATION_EXPERTS_FORM = 'CONSULTATION_EXPERTS_FORM';
+export const SHOW_BANNER = 'SHOW_BANNER';
 /*ACTIONS*/
+
+export const showBanner = (state) => {
+  return{
+      type: SHOW_BANNER,
+      payload: state
+  }
+};
 
 export const showConsultationExpertsForm = (isShow) => {
     return{

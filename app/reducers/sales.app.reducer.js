@@ -12,7 +12,8 @@ import {
     REPORT_FORM,
     KNOW_DEFAULT_FORM,
     KNOW_RESULT_FORM,
-    CONSULTATION_EXPERTS_FORM
+    CONSULTATION_EXPERTS_FORM,
+    SHOW_BANNER
 } from '../actions/index';
 
 const initialState = {
@@ -32,7 +33,8 @@ const initialState = {
     report: false,
     windowPosition: null,
     knowResult: false,
-    consultationExperts: false
+    consultationExperts: false,
+    showBanner: false
 };
 
 const salesReducer =  ( state = initialState, action) => {
@@ -78,6 +80,9 @@ const salesReducer =  ( state = initialState, action) => {
             break;
         case NULL_CALLBACKS:
             return Object.assign({}, state, {responseJson: action.valOne, clientsResp: action.valTwo});
+            break;
+        case SHOW_BANNER:
+            return Object.assign({}, state, {showBanner: action.payload});
             break;
         default: return state;
     }

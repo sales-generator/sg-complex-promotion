@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
-import {setStyles, setWindowPos} from './../actions/index';
+import {setStyles, setWindowPos, showBanner} from './../actions/index';
 
 class ButtonToTop extends React.Component{
     componentDidMount() {
@@ -38,7 +38,8 @@ class ButtonToTop extends React.Component{
 
 const mapStateToProps = (store) => {
     return {
-        styles: store.salesReducer.styles
+        styles: store.salesReducer.styles,
+        banner: store.salesReducer.showBanner
     }
 };
 
