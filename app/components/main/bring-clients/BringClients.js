@@ -4,11 +4,11 @@ import {sendClientsCallback} from '../../../actions/index';
 import { bindActionCreators } from 'redux';
 import MaskedInput from 'react-maskedinput';
 import ScrollableAnchor from 'react-scrollable-anchor';
-import Iframe from 'react-iframe';
+
 
 class BringClients extends React.Component{
 
-    btnSubmitHandler(e) {
+    /*btnSubmitHandler(e) {
         e.preventDefault();
         let formData = {'form-name': 'know-bottom'};
         formData.name = this.refs.name.value;
@@ -20,9 +20,9 @@ class BringClients extends React.Component{
     }
     allBtnSend(e) {
         yaCounter44418460.reachGoal('ALL_BTN_SEND');
-    }
+    }*/
 
-    clientsNotification() {
+   /* clientsNotification() {
         let response = this.props.formState.clientsResp;
         let notification = (resp) => {
             switch (resp.response) {
@@ -40,14 +40,34 @@ class BringClients extends React.Component{
         } else {
             return false;
         }
-    }
+    }*/
 
+    showBottomForm() {
+      return (() => {
+            (function (w, d, u, b) {
+                w['Bitrix24FormObject'] = b;
+                w[b] = w[b] || function () {
+                        arguments[0].ref = u;
+                        (w[b].forms = w[b].forms || []).push(arguments[0])
+                    };
+                if (w[b]['forms']) return;
+                let s = d.createElement('script');
+                let r = 1 * new Date();
+                s.async = 1;
+                s.src = u + '?' + r;
+                let h = d.getElementsByTagName('script')[0];
+                h.parentNode.insertBefore(s, h);
+            })(window, document, 'https://gpro.bitrix24.ru/bitrix/js/crm/form_loader.js', 'b24form');
+
+            b24form({"id": "31", "lang": "ru", "sec": "g6bn7q", "type": "inline"});
+        })();
+    }
     render() {
         return(
             <section className="b-clients">
                     <div className="container">
                         <h2 className="b-clients__title">УЗНАЙТЕ, СКОЛЬКО КЛИЕНТОВ МОЖЕТ ПРИНОСИТЬ ВАШ САЙТ:</h2>
-                        {this.clientsNotification()}
+                        {/*{this.clientsNotification()}*/}
                         <div className="b-clients__block">
                             <div className="b-clients__text">
                                 <p>Нет двух одинаковых сайтов, поэтому для каждого сайта мы делаем индивидуальный расчет!
@@ -55,14 +75,9 @@ class BringClients extends React.Component{
                                 </p>
                                 <p>Это бесплатно и ни к чему Вас не обязывает</p>
                             </div>
-
-                                <Iframe url="https://gpro.bitrix24.ru/pub/form.php?view=frame&form_id=33&widget_user_lang=ru&sec=sxj6a8&r=1507902041823#%7B%22domain%22%3A%22http%3A%2F%2Flocalhost%3A63342%22%2C%22from%22%3A%22http%3A%2F%2Flocalhost%3A63342%2F13%2F123456.html%3F_ijt%3Dcuq28k4k1nra85ilkelku3hr7r%22%7D"
-                                        width="560px"
-                                        height="545px"
-                                        display="initial"
-                                        position="relative"
-                                        allowFullScreen/>
-
+                            <script id="bx24_form_inline" data-skip-moving="true">
+                                {this.showBottomForm()}
+                            </script>
                         </div>
                     </div>
             </section>

@@ -7,20 +7,20 @@ import ScrollableAnchor from 'react-scrollable-anchor';
 class WhatDoYouGet extends Component{
     constructor(props) {
         super(props);
-        this.callPopupHandler = this.callPopupHandler.bind(this);
-        this.orderReportHandler = this.orderReportHandler.bind(this);
+        /*this.callPopupHandler = this.callPopupHandler.bind(this);
+        this.orderReportHandler = this.orderReportHandler.bind(this);*/
     }
 
-    callPopupHandler() {
+    /*callPopupHandler() {
         this.props.showModal(true);
-    }
+    }*/
 
-    orderReportHandler() {
+    /*orderReportHandler() {
         this.props.showModal(true);
         this.props.reportShow(true);
         yaCounter44418460.reachGoal('PRIMER_OTCHETA');
         ga('send', 'event', 'example-report-kp', 'send-example-report');
-    }
+    }*/
 
     render() {
         return(
@@ -51,7 +51,8 @@ class WhatDoYouGet extends Component{
                             </div>
                         </div>
                         <div className="btn-block">
-                            <button className="btn btn--download" onClick={this.orderReportHandler}>Пример нашего отчета <span>PDF, 2.1 МБ.</span></button>
+                            {/*<button className="btn btn--download" onClick={this.orderReportHandler}>Пример нашего отчета <span>PDF, 2.1 МБ.</span></button>*/}
+                            <button className="btn btn--download b24-web-form-popup-btn-27">Пример нашего отчета <span>PDF, 2.1 МБ.</span></button>
                         </div>
                     </div>
                 </section>
