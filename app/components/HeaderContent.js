@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {showKnowDefaultForm, showModal} from '../actions/index';
 import { bindActionCreators } from 'redux';
+import LiveRequest from './main/live-request/LiveRequest';
 
 class HeaderContent extends Component{
     constructor(props) {
@@ -26,6 +27,7 @@ class HeaderContent extends Component{
                         <button className="btn" onClick={this.openKnowFormHandler}>Узнать, сколько клиентов я получу</button>
                     </div>
                     <a href="#guarantees" className="scroll_down"></a>
+                    <LiveRequest/>
                 </div>
             </section>
         );
