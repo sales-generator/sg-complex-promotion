@@ -131,12 +131,47 @@ class Result extends Component{
                         </div>
                     </div>
                     <div>
-                      <div className="results-info__row">
-                        <div className="results-info__column">
-                            <div className="results-info__column__item"><img ref="image3" src="images/po2.jpg" alt="График роста сайта Пансионат Осень" title="График роста сайта Пансионат Осень" onClick={this.caseClickHandler.bind(this)}/></div>
+                        <div className="results-info__row">
+                            <div className="results-info__column">
+                                <div className="results-info__column__item"><img ref="image3" src="images/po2.jpg" alt="График роста сайта Пансионат Осень" title="График роста сайта Пансионат Осень" onClick={this.caseClickHandler.bind(this)}/></div>
+                            </div>
                         </div>
-                      </div>
                     </div>
+                        <div>
+                            <div className="results-info__row">
+                                <div className="results-info__column">
+                                    <div className="results-info__column__item"><img ref="image9" src="images/biokit(2)-min.jpg" alt="График роста сайта Биокит" title="График роста сайта Биокит" onClick={this.caseClickHandler.bind(this)}/></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div className="results-info__row">
+                                <div className="results-info__column">
+                                    <div className="results-info__column__item"><img ref="image10" src="images/mrvov(2)-min.jpg" alt="График роста сайта Мистер ВОВ" title="График роста сайта Мистер ВОВ" onClick={this.caseClickHandler.bind(this)}/></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div className="results-info__row">
+                                <div className="results-info__column">
+                                    <div className="results-info__column__item"><img ref="image11" src="images/patentural(2)-min.jpg" alt="График роста сайта Царская привилегия" title="График роста сайта Царская привилегия" onClick={this.caseClickHandler.bind(this)}/></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div className="results-info__row">
+                                <div className="results-info__column">
+                                    <div className="results-info__column__item"><img ref="image12" src="images/trecom(2)-min.jpg" alt="График роста сайта Треком" title="График роста сайта Треком" onClick={this.caseClickHandler.bind(this)}/></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div className="results-info__row">
+                                <div className="results-info__column">
+                                    <div className="results-info__column__item"><img ref="image13" src="images/vvs(2)-min.jpg" alt="График роста сайта ВВС" title="График роста сайта ВВС" onClick={this.caseClickHandler.bind(this)}/></div>
+                                </div>
+                            </div>
+                        </div>
                     </Slider>
                 </ScrollableAnchor>
                     {/*<button className="btn" onClick={this.openKnowFormHandler}>Узнать, сколько клиентов я получу</button>*/}
