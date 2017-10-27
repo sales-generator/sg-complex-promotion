@@ -8,7 +8,7 @@ import ScrollableAnchor from 'react-scrollable-anchor';
 
 class BringClients extends React.Component{
 
-    /*btnSubmitHandler(e) {
+    btnSubmitHandler(e) {
         e.preventDefault();
         let formData = {'form-name': 'know-bottom'};
         formData.name = this.refs.name.value;
@@ -20,9 +20,9 @@ class BringClients extends React.Component{
     }
     allBtnSend(e) {
         yaCounter44418460.reachGoal('ALL_BTN_SEND');
-    }*/
+    }
 
-   /* clientsNotification() {
+    clientsNotification() {
         let response = this.props.formState.clientsResp;
         let notification = (resp) => {
             switch (resp.response) {
@@ -40,34 +40,15 @@ class BringClients extends React.Component{
         } else {
             return false;
         }
-    }*/
-
-    showBottomForm() {
-      return (() => {
-            (function (w, d, u, b) {
-                w['Bitrix24FormObject'] = b;
-                w[b] = w[b] || function () {
-                        arguments[0].ref = u;
-                        (w[b].forms = w[b].forms || []).push(arguments[0])
-                    };
-                if (w[b]['forms']) return;
-                let s = d.createElement('script');
-                let r = 1 * new Date();
-                s.async = 1;
-                s.src = u + '?' + r;
-                let h = d.getElementsByTagName('script')[0];
-                h.parentNode.insertBefore(s, h);
-            })(window, document, 'https://gpro.bitrix24.ru/bitrix/js/crm/form_loader.js', 'b24form');
-
-            b24form({"id": "31", "lang": "ru", "sec": "g6bn7q", "type": "inline"});
-        })();
     }
+
+
     render() {
         return(
             <section className="b-clients">
                     <div className="container">
                         <h2 className="b-clients__title">УЗНАЙТЕ, СКОЛЬКО КЛИЕНТОВ МОЖЕТ ПРИНОСИТЬ ВАШ САЙТ:</h2>
-                        {/*{this.clientsNotification()}*/}
+                        {this.clientsNotification()}
                         <div className="b-clients__block">
                             <div className="b-clients__text">
                                 <p>Нет двух одинаковых сайтов, поэтому для каждого сайта мы делаем индивидуальный расчет!
@@ -75,9 +56,16 @@ class BringClients extends React.Component{
                                 </p>
                                 <p>Это бесплатно и ни к чему Вас не обязывает</p>
                             </div>
-                            <script id="bx24_form_inline" data-skip-moving="true">
-                                {this.showBottomForm()}
-                            </script>
+                                <form className="form-group know-form" onSubmit={this.btnSubmitHandler.bind(this)}>
+                                    <input className="form-control" placeholder="Имя *" type="text" ref="name" required/>
+                                    {screen.width < 1024 ?
+                                        <input placeholder="+7(___) ___ __ __"  type="text" ref="phone" name="phone" required="true" className="form-control"/> :
+                                        <MaskedInput mask="+7(111) 111 11 11" type="text" ref="phone" className="form-control" placeholder="Телефон *"  required/>
+                                    }
+                                    <ScrollableAnchor id={'how-many-clients'}>
+                                        <input type="submit" className="btn submit-btn"  value="Получить персональное предложение" onClick={this.allBtnSend.bind(this)}/>
+                                    </ScrollableAnchor>
+                                </form>
                         </div>
                     </div>
             </section>

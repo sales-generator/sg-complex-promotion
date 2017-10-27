@@ -7,21 +7,22 @@ import ScrollableAnchor from 'react-scrollable-anchor';
 class Guarantees extends React.Component{
     constructor(props) {
         super(props);
-        /*this.callPopupHandler = this.callPopupHandler.bind(this);
-        this.orderAnContractHandler = this.orderAnContractHandler.bind(this);*/
+        this.callPopupHandler = this.callPopupHandler.bind(this);
+        this.orderAnContractHandler = this.orderAnContractHandler.bind(this);
     }
 
-    /*orderAnContractHandler() {
+    orderAnContractHandler() {
         this.props.contractShow(true);
         this.props.showModal(true);
         yaCounter44418460.reachGoal('SKACHAT_PRIMER');
         ga('send', 'event', 'example-contract', 'send-example-contract');
-    }*/
+    }
 
-    /*callPopupHandler() {
+    callPopupHandler() {
         this.props.showModal(true);
         this.props.showKnowResultForm(true);
-    }*/
+    }
+
     render() {
         return(
             <ScrollableAnchor id={'guarantees'}>
@@ -46,8 +47,7 @@ class Guarantees extends React.Component{
                         </div>
                     </div>
                     <div className="btn-block">
-                        {/*<button className="btn btn--download" onClick={this.orderAnContractHandler}>Скачать пример договора <span>PDF, 2.15 МБ.</span></button>*/}
-                        <button className="btn btn--download b24-web-form-popup-btn-23">Скачать пример договора <span>PDF, 2.15 МБ.</span></button>
+                        <button className="btn btn--download" onClick={this.orderAnContractHandler}>Скачать пример договора <span>PDF, 2.15 МБ.</span></button>
                     </div>
               </div>
             </section>

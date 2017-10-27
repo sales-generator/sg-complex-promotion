@@ -14,14 +14,13 @@ require ('./phpmailer/PHPMailerAutoload.php');
 
  $mail->From = 'pashebor@mail.ru';
  $mail->FromName = 'Генератор продаж';
- /*$mail->addAddress('pashebor@gmail.com', 'Генератор продаж');
+ $mail->addAddress('pashebor@gmail.com', 'Генератор продаж');
  $mail->addAddress('info@salesgenerator.pro', 'Генератор продаж');
  $mail->addAddress('pm@salesgenerator.pro', 'Генератор продаж');
  $mail->addAddress('vip@salesgenerator.pro', 'Генератор продаж');
  $mail->addAddress('ac@salesgenerator.pro', 'Генератор продаж');
  $mail->addAddress('salesgenerates@mail.ru', 'Генератор продаж');
- $mail->addAddress('sd@salesgenerator.pro', 'Генератор продаж');*/
- $mail->addAddress('karnaushkina@salesgenerator.pro', 'Генератор продаж');
+ $mail->addAddress('sd@salesgenerator.pro', 'Генератор продаж');
  $mail->isHtml(true);
 
 
@@ -71,11 +70,17 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
              $mail->Subject = 'Лендинг КП - получить персональное предложение';
              $mail->Body = '<div><p>Имя клиента: '.$arrRequest['name'].'</p><p>Номер телефона: '.$arrRequest['phone'].'</p></div>';
              $mail->send();
-             echo json_encode(["response" => true]);
+           echo json_encode(["response" => true]);
              break;
          case 'consultation-experts':
              $mail->Subject = 'Лендинг КП - получить консультацию экспертов';
              $mail->Body = '<div><p>Имя клиента: '.$arrRequest['name'].'</p><p>Номер телефона: '.$arrRequest['phone'].'</p><p>Комментарий: '.$arrRequest['comment'].'</p></div>';
+             $mail->send();
+             echo json_encode(["response" => true]);
+             break;
+         case 'gift-audit':
+             $mail->Subject = 'Лендинг КП - Акция "Бесплатный аудит"';
+             $mail->Body = '<div><p>Имя клиента: '.$arrRequest['name'].'</p><p>Номер телефона: '.$arrRequest['phone'].'</p></div>';
              $mail->send();
              echo json_encode(["response" => true]);
              break;

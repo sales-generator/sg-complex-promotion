@@ -7,14 +7,14 @@ class WorkInsurance extends React.Component{
 
     constructor(props) {
         super(props);
-        /*this.orderWorkPlanHandler = this.orderWorkPlanHandler.bind(this);*/
+        this.orderWorkPlanHandler = this.orderWorkPlanHandler.bind(this);
     }
-    /*orderWorkPlanHandler() {
+    orderWorkPlanHandler() {
         this.props.workPlanShow(true);
         this.props.showModal(true);
         yaCounter44418460.reachGoal('PLAN_RABOT');
         ga('send', 'event', 'work-plan-kp', 'send-work-plan-kp');
-    }*/
+    }
     render() {
         return (
             <div className="insurance">
@@ -24,8 +24,7 @@ class WorkInsurance extends React.Component{
                     <p className="insurance__text">Посмотрите план работ по сайту одного из наших клиентов на 2 месяца!
                        <br/> Мы вышлем его бесплатно Вам на почту.</p>
                     <div className="btn-block">
-                        {/*<button className="btn btn--download" onClick={this.orderWorkPlanHandler}>План работ на 2 месяца <span>PDF, 2.5 МБ.</span></button>*/}
-                        <button className="btn btn--download b24-web-form-popup-btn-25">План работ на 2 месяца <span>PDF, 2.5 МБ.</span></button>
+                        <button className="btn btn--download" onClick={this.orderWorkPlanHandler}>План работ на 2 месяца <span>PDF, 2.5 МБ.</span></button>
                     </div>
                   </div>
                 </div>

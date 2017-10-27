@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {showModal, sendCallback, nullCallbacks, contractShow, workPlanShow, reportShow, showKnowDefaultForm, showKnowResultForm, showConsultationExpertsForm} from '../actions/index';
+import {showModal, sendCallback, nullCallbacks, contractShow, workPlanShow, reportShow, showKnowDefaultForm} from '../actions/index';
 import { bindActionCreators } from 'redux';
-import Iframe from 'react-iframe';
-
+import MaskedInput from 'react-maskedinput';
 
 class ModalForm extends Component{
+    personalAgreement() {
+        return (
+            <div className="personal-data">
+                <input type="checkbox" className="form-control" required defaultChecked/><p>Согласен на обработку <a href="https://sales-generator.ru/Politika-konfidencialnosti.pdf">персональных данных</a></p>
+            </div>
+        );
+    }
 
     isShow() {
         if (this.props.formState.modalShow) {
@@ -21,16 +27,85 @@ class ModalForm extends Component{
         }
     }
 
+    mailNotification() {
+        let response = this.props.formState.responseJson;
+        let notification = (resp) => {
+            switch (resp.response) {
+                case true:
+                    return <h5 className="popup-form__notification">Ваша заявка принята, с Вами свяжется наш менеджер</h5>;
+                    break;
+                case false:
+                    return <h5 className="popup-form__notification popup-form__notification--error">Произошла ошибка отправки письма</h5>;
+                    break;
+            }
+        };
+
+        if (response) {
+            return notification(response);
+        } else {
+            return false;
+        }
+    }
+
+    targetBtnSend (e) {
+        yaCounter44418460.reachGoal('ALL_BTN_SEND');
+        return true;
+    }
+
+    btnSubmitHandler(e) {
+        e.preventDefault();
+        let formData = {'form-name': 'callback'};
+
+        if (this.props.formState.contract) {
+            formData['form-name'] = 'contract-order';
+            formData.email = this.refs.email.value;
+            formData.phone = this.refs.phone.mask.getValue();
+            this.props.sendCallback(formData);
+        } else if (this.props.formState.workPlan) {
+            formData['form-name'] = 'work-plan-order';
+            formData.email = this.refs.email.value;
+            formData.phone = this.refs.phone.mask.getValue();
+            this.props.sendCallback(formData);
+        } else if(this.props.formState.report) {
+            formData['form-name'] = 'report-order';
+            formData.email = this.refs.email.value;
+            formData.phone = this.refs.phone.mask.getValue();
+            this.props.sendCallback(formData);
+        } else if (this.props.formState.knowDefault) {
+            formData = {'form-name': 'know-default'};
+            formData['name'] = this.refs['name'].value;
+            formData['phone'] = this.refs['phone'].mask.getValue();
+            formData['comment'] = this.refs['comment'].value;
+            this.props.sendCallback(formData);
+        } else {
+            formData['name'] = this.refs['name'].value;
+            formData['phone'] = this.refs['phone'].mask.getValue();
+            formData['comment'] = this.refs['comment'].value;
+            this.props.sendCallback(formData);
+        }
+    }
+
     closeModalHandler(e) {
         e.stopPropagation();
+
+        if (this.props.formState.contract || this.props.formState.workPlan || this.props.formState.report) {
+            this.refs.email.value = '';
+            this.refs.phone.mask.setValue('');
+        } else if (this.props.formState.knowDefault){
+            for (let field in this.refs) {
+                this.refs[field].value = '';
+            }
+        } else {
+            this.refs['name'].value = '';
+            this.refs['phone'].mask.setValue('');
+            this.refs['comment'].value = '';
+        }
         this.props.showModal(false);
         this.props.nullCallbacks(null, null);
         this.props.contractShow(false);
         this.props.workPlanShow(false);
         this.props.reportShow(false);
         this.props.showKnowDefaultForm(false);
-        this.props.showKnowResultForm(false);
-        this.props.showConsultationExpertsForm(false);
 
     }
 
@@ -38,94 +113,89 @@ class ModalForm extends Component{
         e.stopPropagation();
         this.props.showModal(true);
     }
-    targetBtnSend (e) {
-        yaCounter44418460.reachGoal('ALL_BTN_SEND');
-        return true;
-    }
     formVariants() {
         if (this.props.formState.contract) {
             return(
                 <div className="popup-form">
                     <div className="popup-form__close" onClick={this.closeModalHandler.bind(this)}>&times;</div>
-                    <Iframe url="https://gpro.bitrix24.ru/pub/form.php?view=frame&form_id=23&widget_user_lang=ru&sec=he0k37&r=1507901318537#%7B%22domain%22%3A%22http%3A%2F%2Flocalhost%3A63342%22%2C%22from%22%3A%22http%3A%2F%2Flocalhost%3A63342%2F13%2F123456.html%3F_ijt%3Dv0lfpmk08iabumnm6i320rjvja%22%7D"
-                            width="100%"
-                            height="539px"
-                            display="initial"
-                            position="relative"
-                            allowFullScreen/>
+                    <p>Чтобы получить пример договора, оставьте,  пожалуйста,  свои контактные данные</p>
+                    {this.mailNotification()}
+                    <form className="form-group" onClick={this.formClickHandler.bind(this)} onSubmit={this.btnSubmitHandler.bind(this)}>
+                        <label>Ваш Email <span>*</span></label>
+                        <input type="email" ref="email" name="email" className="form-control" required="true" placeholder="example@mail.ru"/>
+                        <label>Телефон <span>*</span></label>
+                        <MaskedInput  mask="+7(111) 111 11 11" type="text" ref="phone" name="phone" required="true" className="form-control"/>
+                        {this.personalAgreement()}
+                        <input type="submit" value='Отправить заявку' className="btn" onClick={this.targetBtnSend.bind(this)}/>
+                    </form>
                 </div>
             )
         } else if (this.props.formState.workPlan) {
             return(
                 <div className="popup-form">
                     <div className="popup-form__close" onClick={this.closeModalHandler.bind(this)}>&times;</div>
-                    <Iframe url="https://gpro.bitrix24.ru/pub/form.php?view=frame&form_id=25&widget_user_lang=ru&sec=2i3jjh&r=1507901318542#%7B%22domain%22%3A%22http%3A%2F%2Flocalhost%3A63342%22%2C%22from%22%3A%22http%3A%2F%2Flocalhost%3A63342%2F13%2F123456.html%3F_ijt%3Dv0lfpmk08iabumnm6i320rjvja%22%7D"
-                            width="100%"
-                            height="539px"
-                            display="initial"
-                            position="relative"
-                            allowFullScreen/>
+                    <p>Чтобы получить пример плана работ, оставьте, пожалуйста, свои контактные данные</p>
+                    {this.mailNotification()}
+                    <form className="form-group" onClick={this.formClickHandler.bind(this)} onSubmit={this.btnSubmitHandler.bind(this)}>
+                        <label>Ваш Email <span>*</span></label>
+                        <input type="email" ref="email" name="email" className="form-control" required="true" placeholder="example@mail.ru"/>
+                        <label>Телефон <span>*</span></label>
+                        <MaskedInput  mask="+7(111) 111 11 11" type="text" ref="phone" name="phone" required="true" className="form-control"/>
+                        {this.personalAgreement()}
+                        <input type="submit" value='Отправить заявку' className="btn" onClick={this.targetBtnSend.bind(this)}/>
+                    </form>
                 </div>
             )
         } else if (this.props.formState.report) {
             return(
                 <div className="popup-form">
                     <div className="popup-form__close" onClick={this.closeModalHandler.bind(this)}>&times;</div>
-                    <div className="popup-form__close" onClick={this.closeModalHandler.bind(this)}>&times;</div>
-                    <Iframe url="https://gpro.bitrix24.ru/pub/form.php?view=frame&form_id=27&widget_user_lang=ru&sec=uycit0&r=1507901318544#%7B%22domain%22%3A%22http%3A%2F%2Flocalhost%3A63342%22%2C%22from%22%3A%22http%3A%2F%2Flocalhost%3A63342%2F13%2F123456.html%3F_ijt%3Dv0lfpmk08iabumnm6i320rjvja%22%7D"
-                            width="100%"
-                            height="539px"
-                            display="initial"
-                            position="relative"
-                            allowFullScreen/>
+                    <p>Чтобы получить пример нашего отчета,  оставьте,  пожалуйста,  свои контактные данные</p>
+                    {this.mailNotification()}
+                    <form className="form-group" onClick={this.formClickHandler.bind(this)} onSubmit={this.btnSubmitHandler.bind(this)}>
+                        <label>Ваш Email <span>*</span></label>
+                        <input type="email" ref="email" name="email" className="form-control" required="true" placeholder="example@mail.ru"/>
+                        <label>Телефон <span>*</span></label>
+                        <MaskedInput  mask="+7(111) 111 11 11" type="text" ref="phone" name="phone" required="true" className="form-control"/>
+                        {this.personalAgreement()}
+                        <input type="submit" value='Отправить заявку' className="btn" onClick={this.targetBtnSend.bind(this)}/>
+                    </form>
                 </div>
             )
         } if (this.props.formState.knowDefault){
             return(
                 <div className="popup-form">
                     <div className="popup-form__close" onClick={this.closeModalHandler.bind(this)}>&times;</div>
-                    <Iframe url="https://gpro.bitrix24.ru/pub/form.php?view=frame&form_id=21&widget_user_lang=ru&sec=dqipwd&r=1507900158120#%7B%22domain%22%3A%22http%3A%2F%2Flocalhost%3A8080%22%2C%22from%22%3A%22http%3A%2F%2Flocalhost%3A8080%2F%23professional-audit%22%7D"
-                            width="100%"
-                            height="539px"
-                            display="initial"
-                            position="relative"
-                            allowFullScreen/>
-                </div>
-            )
-        } if (this.props.formState.knowResult){
-            return(
-                <div className="popup-form">
-                    <div className="popup-form__close" onClick={this.closeModalHandler.bind(this)}>&times;</div>
-                    <Iframe url="https://gpro.bitrix24.ru/pub/form.php?view=frame&form_id=23&widget_user_lang=ru&sec=he0k37&r=1507901318537#%7B%22domain%22%3A%22http%3A%2F%2Flocalhost%3A63342%22%2C%22from%22%3A%22http%3A%2F%2Flocalhost%3A63342%2F13%2F123456.html%3F_ijt%3Dv0lfpmk08iabumnm6i320rjvja%22%7D"
-                            width="100%"
-                            height="539px"
-                            display="initial"
-                            position="relative"
-                            allowFullScreen/>
-                </div>
-            )
-        } if (this.props.formState.consultationExperts){
-            return(
-                <div className="popup-form">
-                    <div className="popup-form__close" onClick={this.closeModalHandler.bind(this)}>&times;</div>
-                    <Iframe url="https://gpro.bitrix24.ru/pub/form.php?view=frame&form_id=33&widget_user_lang=ru&sec=sxj6a8&r=1507901318553#%7B%22domain%22%3A%22http%3A%2F%2Flocalhost%3A63342%22%2C%22from%22%3A%22http%3A%2F%2Flocalhost%3A63342%2F13%2F123456.html%3F_ijt%3Dv0lfpmk08iabumnm6i320rjvja%22%7D"
-                            width="100%"
-                            height="539px"
-                            display="initial"
-                            position="relative"
-                            allowFullScreen/>
+                    <p>Узнать сколько клиентов мы можем привести Вам на сайт</p>
+                    {this.mailNotification()}
+                    <form className="form-group" onClick={this.formClickHandler.bind(this)} onSubmit={this.btnSubmitHandler.bind(this)}>
+                        <label>Как к Вам обращаться?<span>*</span></label>
+                        <input  type="text" ref="name" name="name" className="form-control" placeholder="Иванов Иван Иванович" required/>
+                        <label>Телефон <span>*</span></label>
+                        <MaskedInput  mask="+7(111) 111 11 11" type="text" ref="phone" name="phone" required="true" className="form-control"/>
+                        <label>Комментарий</label>
+                        <textarea className="form-control" name="comment" ref="comment" placeholder="Мой сайт www.mysite.ru. Прошу связаться со мной в 14:30."></textarea>
+                        {this.personalAgreement()}
+                        <input type="submit" value='Отправить заявку' className="btn" onClick={this.targetBtnSend.bind(this)}/>
+                    </form>
                 </div>
             )
         } else {
             return(
                 <div className="popup-form">
                     <div className="popup-form__close" onClick={this.closeModalHandler.bind(this)}>&times;</div>
-                    <Iframe url="https://gpro.bitrix24.ru/pub/form.php?view=frame&form_id=19&widget_user_lang=ru&sec=x7c4tv&r=1507900055000#%7B%22domain%22%3A%22http%3A%2F%2Flocalhost%3A8080%22%2C%22from%22%3A%22http%3A%2F%2Flocalhost%3A8080%2F%23professional-audit%22%7D"
-                            width="100%"
-                            height="539px"
-                            display="initial"
-                            position="relative"
-                            allowFullScreen/>
+                    <p>Оформление заявки</p>
+                    {this.mailNotification()}
+                    <form className="form-group" onClick={this.formClickHandler.bind(this)} onSubmit={this.btnSubmitHandler.bind(this)}>
+                        <label>Как к Вам обращаться?<span>*</span></label>
+                        <input  type="text" ref="name" name="name" className="form-control" placeholder="Иванов Иван Иванович" required/>
+                        <label>Телефон <span>*</span></label>
+                        <MaskedInput  mask="+7(111) 111 11 11" type="text" ref="phone" name="phone" required="true" className="form-control"/>
+                        <label>Комментарий</label>
+                        <textarea className="form-control" name="comment" ref="comment" placeholder="Мой сайт www.mysite.ru. Прошу связаться со мной в 14:30."></textarea>
+                        {this.personalAgreement()}
+                        <input type="submit" value='Отправить заявку' className="btn" onClick={this.targetBtnSend.bind(this)}/>
+                    </form>
                 </div>
             )
         }
@@ -146,7 +216,7 @@ const mapStateToProps = (store) => {
 };
 
 const mapDispatchToProps = dispatch => {
-    return bindActionCreators({showModal, sendCallback, nullCallbacks, contractShow, workPlanShow, reportShow, showKnowDefaultForm, showKnowResultForm, showConsultationExpertsForm}, dispatch);
+    return bindActionCreators({showModal, sendCallback, nullCallbacks, contractShow, workPlanShow, reportShow, showKnowDefaultForm}, dispatch);
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ModalForm);

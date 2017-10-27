@@ -1,0 +1,18 @@
+.banner-form{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  position: relative;
+  top: 20px;
+  &__field{
+    font-size: 19px;
+    width: 30%;
+    height: 52px !important;
+  }
+  &__btn{
+    width: 30% !important;
+    height: 52px !important;
+    margin: 0 !important;
+    border-radius: 3px !important;
+  }
+}
