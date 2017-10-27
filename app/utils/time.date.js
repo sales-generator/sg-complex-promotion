@@ -1,6 +1,6 @@
 export const  daysInMonth = (month,year) => new Date(year, month, 0).getDate();
 export const findClosestDay = dayscount => {
-    let daysArray = [];
+    let daysArray = [30];
     let daysCount = 0;
     if (dayscount > 30) {
         daysCount = (dayscount - 1) / 5;
@@ -19,18 +19,15 @@ export const findClosestDay = dayscount => {
     return daysArray;
 };
 export const closestValue =(array, value) => {
-    let result,
-        lastDelta;
+    let closest = Math.max.apply(null, array), date = value;
+    if(date === 31) {
+        date = 0;
+    }
+    for(let i = 0; i < array.length; i++) {
+        if(array[i] >= date && array[i] < closest) closest = array[i];
+    }
 
-    array.some(function (item) {
-        let delta = Math.abs(value - item);
-        if (delta > lastDelta) {
-            return true;
-        }
-        result = item;
-        lastDelta = delta;
-    });
-    return result;
+    return closest; // return the value
 };
 
 export const monthNames = () => {
