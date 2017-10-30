@@ -4,6 +4,7 @@ import {showKnowDefaultForm, showModal} from '../actions/index';
 import { bindActionCreators } from 'redux';
 import LiveRequest from './main/live-request/LiveRequest';
 
+
 class HeaderContent extends Component{
     constructor(props) {
         super(props);
@@ -26,7 +27,9 @@ class HeaderContent extends Component{
                         <h3 className="header__content-subtitle">Гарантированно приведем на Ваш сайт тысячи новых клиентов</h3>
                         <button className="btn" onClick={this.openKnowFormHandler}>Узнать, сколько клиентов я получу</button>
                     </div>
-                    <a href="#guarantees" className="scroll_down"></a>
+                    <div className="stage">
+                        <a href="#guarantees" className="scroll_down"></a>
+                    </div>
                     <LiveRequest/>
                 </div>
             </section>
