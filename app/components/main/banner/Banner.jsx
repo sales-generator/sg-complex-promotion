@@ -11,28 +11,9 @@ class Banner extends React.Component{
         this.props.showBanner(false);
         let date = new Date();
         window.localStorage.setItem('banner', date.getTime());
-        this.prop.nullCallbacks(null, null);
     }
 
-    mailNotification() {
-        let response = this.props.reponseJson;
-        let notification = (resp) => {
-            switch (resp.response) {
-                case true:
-                    return <h5 className="popup-form__notification">Ваша заявка принята, с Вами свяжется наш менеджер</h5>;
-                    break;
-                case false:
-                    return <h5 className="popup-form__notification popup-form__notification--error">Произошла ошибка отправки письма</h5>;
-                    break;
-            }
-        };
 
-        if (response) {
-            return notification(response);
-        } else {
-            return false;
-        }
-    }
 
     btnSubmitHandler(e) {
         e.preventDefault();
@@ -42,6 +23,8 @@ class Banner extends React.Component{
         this.props.sendCallback(formData);
         this.refs['name'].value = '';
         this.refs['phone'].mask.setValue('');
+        this.props.nullCallbacks(null, null);
+        this.closeBannerPopup();
 
     }
 
@@ -59,7 +42,6 @@ class Banner extends React.Component{
             <div className="popup-overlay popup-overlay--banner">
                 <div className="popup-form popup-form--banner">
                     <div className="popup-form__close" onClick={this.closeBannerPopup.bind(this)}>&times;</div>
-                    {this.mailNotification()}
                     <p className="banner-text">Оставьте заявку до <span>{actionDay} {currentMonthName}</span></p>
                     <p className="banner-text">и получите аудит вашего сайта</p>
                     <p className="banner-text"><span>в подарок</span><img src="images/gift.png"/></p>

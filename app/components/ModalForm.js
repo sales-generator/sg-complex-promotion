@@ -52,6 +52,17 @@ class ModalForm extends Component{
         return true;
     }
 
+
+    closeModalHandler(e) {
+        this.props.showModal(false);
+        this.props.nullCallbacks(null, null);
+        this.props.contractShow(false);
+        this.props.workPlanShow(false);
+        this.props.reportShow(false);
+        this.props.showKnowDefaultForm(false);
+    }
+
+
     btnSubmitHandler(e) {
         e.preventDefault();
         let formData = {'form-name': 'callback'};
@@ -83,10 +94,6 @@ class ModalForm extends Component{
             formData['comment'] = this.refs['comment'].value;
             this.props.sendCallback(formData);
         }
-    }
-
-    closeModalHandler(e) {
-        e.stopPropagation();
 
         if (this.props.formState.contract || this.props.formState.workPlan || this.props.formState.report) {
             this.refs.email.value = '';
@@ -100,13 +107,8 @@ class ModalForm extends Component{
             this.refs['phone'].mask.setValue('');
             this.refs['comment'].value = '';
         }
-        this.props.showModal(false);
-        this.props.nullCallbacks(null, null);
-        this.props.contractShow(false);
-        this.props.workPlanShow(false);
-        this.props.reportShow(false);
-        this.props.showKnowDefaultForm(false);
 
+        this.closeModalHandler();
     }
 
     formClickHandler(e){
@@ -119,7 +121,6 @@ class ModalForm extends Component{
                 <div className="popup-form">
                     <div className="popup-form__close" onClick={this.closeModalHandler.bind(this)}>&times;</div>
                     <p>Чтобы получить пример договора, оставьте,  пожалуйста,  свои контактные данные</p>
-                    {this.mailNotification()}
                     <form className="form-group" onClick={this.formClickHandler.bind(this)} onSubmit={this.btnSubmitHandler.bind(this)}>
                         <label>Ваш Email <span>*</span></label>
                         <input type="email" ref="email" name="email" className="form-control" required="true" placeholder="example@mail.ru"/>
@@ -135,7 +136,6 @@ class ModalForm extends Component{
                 <div className="popup-form">
                     <div className="popup-form__close" onClick={this.closeModalHandler.bind(this)}>&times;</div>
                     <p>Чтобы получить пример плана работ, оставьте, пожалуйста, свои контактные данные</p>
-                    {this.mailNotification()}
                     <form className="form-group" onClick={this.formClickHandler.bind(this)} onSubmit={this.btnSubmitHandler.bind(this)}>
                         <label>Ваш Email <span>*</span></label>
                         <input type="email" ref="email" name="email" className="form-control" required="true" placeholder="example@mail.ru"/>
@@ -151,7 +151,6 @@ class ModalForm extends Component{
                 <div className="popup-form">
                     <div className="popup-form__close" onClick={this.closeModalHandler.bind(this)}>&times;</div>
                     <p>Чтобы получить пример нашего отчета,  оставьте,  пожалуйста,  свои контактные данные</p>
-                    {this.mailNotification()}
                     <form className="form-group" onClick={this.formClickHandler.bind(this)} onSubmit={this.btnSubmitHandler.bind(this)}>
                         <label>Ваш Email <span>*</span></label>
                         <input type="email" ref="email" name="email" className="form-control" required="true" placeholder="example@mail.ru"/>
@@ -167,7 +166,6 @@ class ModalForm extends Component{
                 <div className="popup-form">
                     <div className="popup-form__close" onClick={this.closeModalHandler.bind(this)}>&times;</div>
                     <p>Узнать сколько клиентов мы можем привести Вам на сайт</p>
-                    {this.mailNotification()}
                     <form className="form-group" onClick={this.formClickHandler.bind(this)} onSubmit={this.btnSubmitHandler.bind(this)}>
                         <label>Как к Вам обращаться?<span>*</span></label>
                         <input  type="text" ref="name" name="name" className="form-control" placeholder="Иванов Иван Иванович" required/>
@@ -185,7 +183,6 @@ class ModalForm extends Component{
                 <div className="popup-form">
                     <div className="popup-form__close" onClick={this.closeModalHandler.bind(this)}>&times;</div>
                     <p>Оформление заявки</p>
-                    {this.mailNotification()}
                     <form className="form-group" onClick={this.formClickHandler.bind(this)} onSubmit={this.btnSubmitHandler.bind(this)}>
                         <label>Как к Вам обращаться?<span>*</span></label>
                         <input  type="text" ref="name" name="name" className="form-control" placeholder="Иванов Иван Иванович" required/>

@@ -8,6 +8,9 @@
   transition: opacity 500ms;
   display: none;
   z-index: 1000;
+  &--cta{
+    display: block;
+  }
   &--banner{
     display: block;
   }
@@ -26,8 +29,8 @@
       background: linear-gradient(195deg, #1b1b1b 55%, #3f3f3f);
       color: white;
       padding: 80px;
+      width: 50%;
       iframe{
-        width: 80%;
         overflow: hidden;
         height: 93px!important;
       }
@@ -61,6 +64,9 @@
       background-color: #5cb860;
       border-radius: 5px;
       animation: notifAnimation 0.3s 1 linear;
+      h2{
+        margin-top: 10px;
+      }
       &--error{
         background-color: #e53835;
       }
@@ -259,6 +265,8 @@
   }
 
 }*/
+
+
 
 @keyframes popupAnimOpen {
   from{opacity: 0;}

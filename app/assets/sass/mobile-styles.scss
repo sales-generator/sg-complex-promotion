@@ -442,6 +442,39 @@
       width: 90% !important;
     }
   }
+
+  .popup-form__notification{
+    h2{
+      font-size: 25px;
+    }
+  }
+
+  .popup-form--cta{
+    overflow-y: scroll;
+    height: 550px;
+  }
+
+  .cta-image-block{
+    display: flex;
+    flex-flow: column;
+    &__item{
+      h2{
+        text-align: center;
+      }
+      img{
+        width: 50%;
+        display: block;
+        margin: auto;
+      }
+      &:first-child{
+        width: 100%;
+
+      }
+      &:nth-child(2) {
+        width: 100%;
+      }
+    }
+  }
 }
 
 @media screen and (min-width: 1280px) and (max-width: 1400px) {

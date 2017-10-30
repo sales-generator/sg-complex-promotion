@@ -17,7 +17,15 @@ export const KNOW_DEFAULT_FORM = 'KNOW_DEFAULT_FORM';
 export const KNOW_RESULT_FORM = 'KNOW_RESULT_FORM';
 export const CONSULTATION_EXPERTS_FORM = 'CONSULTATION_EXPERTS_FORM';
 export const SHOW_BANNER = 'SHOW_BANNER';
+export const SHOW_CTA_BANNER = 'SHOW_CTA_BANNER';
 /*ACTIONS*/
+
+export const showCtaBanner = state =>{
+    return {
+        type: SHOW_CTA_BANNER,
+        payload: state
+    }
+};
 
 export const showBanner = (state) => {
     return{
@@ -154,6 +162,7 @@ export const sendCallback = formData => {
         return requestCallback('./send_mail.php', formData)
             .then(json => {
                 dispatch(sendRequestCallback(json));
+                dispatch(showCtaBanner(true));
             })
             .catch(err => console.log('error'));
     }
