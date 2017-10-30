@@ -13,7 +13,8 @@ import {
     KNOW_DEFAULT_FORM,
     KNOW_RESULT_FORM,
     CONSULTATION_EXPERTS_FORM,
-    SHOW_BANNER
+    SHOW_BANNER,
+    SHOW_CTA_BANNER
 } from '../actions/index';
 
 const initialState = {
@@ -34,7 +35,8 @@ const initialState = {
     windowPosition: null,
     knowResult: false,
     consultationExperts: false,
-    showBanner: false
+    showBanner: false,
+    ctaBanner: false
 };
 
 const salesReducer =  ( state = initialState, action) => {
@@ -83,6 +85,9 @@ const salesReducer =  ( state = initialState, action) => {
             break;
         case SHOW_BANNER:
             return Object.assign({}, state, {showBanner: action.payload});
+            break;
+        case SHOW_CTA_BANNER:
+            return Object.assign({}, state, {ctaBanner: action.payload});
             break;
         default: return state;
     }

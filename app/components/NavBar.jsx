@@ -6,11 +6,11 @@ import {connect} from 'react-redux';
 
 
 class NavBar extends Component{
-    /*openModalHandler() {
+    openModalHandler() {
         this.props.showModal(true);
         yaCounter44418460.reachGoal('ZAKAZAT_ZVONOK');
         ga('send', 'event', 'callback-kp', 'send-calback-kp');
-    }*/
+    }
 
     render() {
         return(
@@ -21,8 +21,7 @@ class NavBar extends Component{
                   <a  href="tel:88003331293">8 (800) 333 12 93</a>
                   <a  href="tel:84951250840">8 (495) 125 08 40</a>
               </div>
-              {/*<button className="btn btn--callback" onClick={this.openModalHandler.bind(this)}>Заказать звонок</button>*/}
-              <button className="btn btn--callback b24-web-form-popup-btn-19">Заказать звонок</button>
+              <button className="btn btn--callback" onClick={this.openModalHandler.bind(this)}>Заказать звонок</button>
           </nav>
         );
     };

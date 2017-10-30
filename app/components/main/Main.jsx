@@ -11,6 +11,7 @@ import BringClients from './bring-clients/BringClients';
 import KeyDigits from './key-digits/KeyDigits';
 import Approach from './approach/Approach';
 import Staff from '../Staff';
+import CtaBanner from '../main/banner/CtaBanner';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Banner from './banner/Banner.jsx';
@@ -19,6 +20,7 @@ import {showBanner} from '../../actions/index';
 class Main extends Component{
 
     componentDidMount() {
+        console.log(this.props.ctaBanner);
         let that = this, currentDate = new Date(),
             dateDifference = Math.abs(currentDate.getTime() - parseInt(window.localStorage.getItem('banner')));
         dateDifference = (Math.round(dateDifference) / 86400000).toFixed();
@@ -44,9 +46,10 @@ class Main extends Component{
                <KeyDigits/>
                <Recomendations/>
                <ClientsWords/>
-               <Staff/>
+               {/*<Staff/>*/}
                <Facts/>
                <BringClients/>
+               {this.props.ctaBanner ? <CtaBanner/> : null}
                {this.props.banner ? <Banner/> : null}
            </main>
         )
@@ -56,7 +59,8 @@ class Main extends Component{
 const mapStateToProps = (store) => {
     return {
         windowPosition: store.salesReducer.windowPosition,
-        banner: store.salesReducer.showBanner
+        banner: store.salesReducer.showBanner,
+        ctaBanner: store.salesReducer.ctaBanner
     }
 };
 

@@ -17,13 +17,21 @@ export const KNOW_DEFAULT_FORM = 'KNOW_DEFAULT_FORM';
 export const KNOW_RESULT_FORM = 'KNOW_RESULT_FORM';
 export const CONSULTATION_EXPERTS_FORM = 'CONSULTATION_EXPERTS_FORM';
 export const SHOW_BANNER = 'SHOW_BANNER';
+export const SHOW_CTA_BANNER = 'SHOW_CTA_BANNER';
 /*ACTIONS*/
 
+export const showCtaBanner = state =>{
+    return {
+        type: SHOW_CTA_BANNER,
+        payload: state
+    }
+};
+
 export const showBanner = (state) => {
-  return{
-      type: SHOW_BANNER,
-      payload: state
-  }
+    return{
+        type: SHOW_BANNER,
+        payload: state
+    }
 };
 
 export const showConsultationExpertsForm = (isShow) => {
@@ -45,7 +53,7 @@ export const showKnowDefaultForm = (isShow) => {
         type: KNOW_DEFAULT_FORM,
         show: isShow
     }
-}; 
+};
 
 export const setApproachItem = (item) => {
     return{
@@ -59,14 +67,14 @@ export const setWindowPos = (value) => {
         type: SET_WINDOW_POS,
         position: value
     }
-};
+}
 
 export const reportShow = (value) => {
     return {
         type: REPORT_FORM,
         show: value
     }
-};
+}
 
 
 export const workPlanShow = (value) => {
@@ -84,17 +92,17 @@ export const contractShow = (value) => {
 };
 
 export const setStyles = (opacity, pointerEvents, cursor) => {
-        return {
-            type: SCROLLER_OPACITY,
-            payload: {opacity: opacity, pointerEvents: pointerEvents, cursor: cursor }
-        }
+    return {
+        type: SCROLLER_OPACITY,
+        payload: {opacity: opacity, pointerEvents: pointerEvents, cursor: cursor }
+    }
 };
 
 export const showModal = (logicValue) => {
-  return{
-      type: GET_MODAL_FORM,
-      show: logicValue
-  }
+    return{
+        type: GET_MODAL_FORM,
+        show: logicValue
+    }
 };
 
 export const openCase = (uri, logicValue) => {
@@ -106,20 +114,20 @@ export const openCase = (uri, logicValue) => {
 };
 
 export const openSlider = (uri,logicValue) => {
-   return {
-       type: OPEN_SLIDER,
-       payload: uri,
-       show: logicValue
-   }
+    return {
+        type: OPEN_SLIDER,
+        payload: uri,
+        show: logicValue
+    }
 };
 
 
 export const nullCallbacks = (val1, val2) => {
-   return{
-       type: NULL_CALLBACKS,
-       valOne: val1,
-       valTwo: val2
-   }
+    return{
+        type: NULL_CALLBACKS,
+        valOne: val1,
+        valTwo: val2
+    }
 };
 
 /*ASYNC ACTIONS*/
@@ -154,9 +162,8 @@ export const sendCallback = formData => {
         return requestCallback('./send_mail.php', formData)
             .then(json => {
                 dispatch(sendRequestCallback(json));
+                dispatch(showCtaBanner(true));
             })
             .catch(err => console.log('error'));
     }
 };
-
-

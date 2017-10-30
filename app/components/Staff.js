@@ -10,14 +10,14 @@ class Staff extends Component{
 
     constructor(props) {
         super(props);
-        /*this.openKnowFormHandler = this.openKnowFormHandler.bind(this);*/
+        this.openKnowFormHandler = this.openKnowFormHandler.bind(this);
     }
 
-    /*openKnowFormHandler() {
+    openKnowFormHandler() {
         this.props.showConsultationExpertsForm(true);
         this.props.showModal(true);
         yaCounter44418460.reachGoal('CONSULTATION_EXPERTS');
-    }*/
+    }
 
     render() {
         const settings = {
@@ -75,8 +75,7 @@ class Staff extends Component{
                                                         контролирует движение целей по продвижению сайта
                                                     </li>
                                                 </ul>
-                                                {/*<button className="btn" onClick={this.openKnowFormHandler}>Получить консультацию экспертов</button>*/}
-                                                <button className="btn b24-web-form-popup-btn-33">Получить консультацию экспертов</button>
+                                                <button className="btn" onClick={this.openKnowFormHandler}>Получить консультацию экспертов</button>
                                             </div>
                                         </div>
                                     </div>
@@ -103,8 +102,7 @@ class Staff extends Component{
                                                         анализирует конкурентов и внедряет идеи для развития сайтов
                                                     </li>
                                                 </ul>
-                                                {/*<button className="btn" onClick={this.openKnowFormHandler}>Получить консультацию экспертов</button>*/}
-                                                <button className="btn b24-web-form-popup-btn-33">Получить консультацию экспертов</button>
+                                                <button className="btn" onClick={this.openKnowFormHandler}>Получить консультацию экспертов</button>
                                             </div>
                                         </div>
                                     </div>
@@ -131,8 +129,7 @@ class Staff extends Component{
                                                         исследует поведение пользователей на сайте
                                                     </li>
                                                 </ul>
-                                                {/*<button className="btn" onClick={this.openKnowFormHandler}>Получить консультацию экспертов</button>*/}
-                                                <button className="btn b24-web-form-popup-btn-33">Получить консультацию экспертов</button>
+                                                <button className="btn" onClick={this.openKnowFormHandler}>Получить консультацию экспертов</button>
                                             </div>
                                         </div>
                                     </div>
@@ -159,8 +156,7 @@ class Staff extends Component{
                                                         занимается внутренней оптимизацией структуры сайта
                                                     </li>
                                                 </ul>
-                                                {/*<button className="btn" onClick={this.openKnowFormHandler}>Получить консультацию экспертов</button>*/}
-                                                <button className="btn b24-web-form-popup-btn-33">Получить консультацию экспертов</button>
+                                                <button className="btn" onClick={this.openKnowFormHandler}>Получить консультацию экспертов</button>
                                             </div>
                                         </div>
                                     </div>
@@ -187,8 +183,7 @@ class Staff extends Component{
                                                         вносит изменения на сайты согласно задачам
                                                     </li>
                                                 </ul>
-                                                {/*<button className="btn" onClick={this.openKnowFormHandler}>Получить консультацию экспертов</button>*/}
-                                                <button className="btn b24-web-form-popup-btn-33">Получить консультацию экспертов</button>
+                                                <button className="btn" onClick={this.openKnowFormHandler}>Получить консультацию экспертов</button>
                                             </div>
                                         </div>
                                     </div>
@@ -215,8 +210,7 @@ class Staff extends Component{
                                                         исследует потребности и запросы посетителей сайта
                                                     </li>
                                                 </ul>
-                                                {/*<button className="btn" onClick={this.openKnowFormHandler}>Получить консультацию экспертов</button>*/}
-                                                <button className="btn b24-web-form-popup-btn-33">Получить консультацию экспертов</button>
+                                                <button className="btn" onClick={this.openKnowFormHandler}>Получить консультацию экспертов</button>
                                             </div>
                                         </div>
                                     </div>
@@ -243,8 +237,7 @@ class Staff extends Component{
                                                         отвечает за корректную структуру и содержание материалов
                                                     </li>
                                                 </ul>
-                                                {/*<button className="btn" onClick={this.openKnowFormHandler}>Получить консультацию экспертов</button>*/}
-                                                <button className="btn b24-web-form-popup-btn-33">Получить консультацию экспертов</button>
+                                                <button className="btn" onClick={this.openKnowFormHandler}>Получить консультацию экспертов</button>
                                             </div>
                                         </div>
                                     </div>

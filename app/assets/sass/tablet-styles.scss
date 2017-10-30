@@ -225,6 +225,23 @@
 
   .popup-overlay .popup-form{
     width: 70%;
+    &--banner{
+      padding: 50px;
+    }
+    .banner{
+      &-text{
+        font-size: 28px;
+        span{
+          color: #4CAF83;
+          text-transform: uppercase;
+        }
+        img{
+          margin-left: 10px;
+          width: 30px;
+          vertical-align: baseline;
+        }
+      }
+    }
   }
 
   .popup-slider-overlay{
@@ -261,4 +278,15 @@
   .scroll_down {
     display: none;
   }
+
+  .banner-form{
+    &__field{
+      width: 40%;
+      margin-bottom: 15px;
+    }
+    &__btn{
+      width: 80% !important;
+    }
+  }
+
 }

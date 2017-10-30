@@ -10,14 +10,14 @@ class Result extends Component{
 
     constructor(props) {
         super(props);
-       /* this.openKnowFormHandler = this.openKnowFormHandler.bind(this);*/
+        this.openKnowFormHandler = this.openKnowFormHandler.bind(this);
     }
 
-    /*openKnowFormHandler() {
+    openKnowFormHandler() {
         this.props.showKnowDefaultForm(true);
         this.props.showModal(true);
         yaCounter44418460.reachGoal('SKOLKO_KLIENTOV2');
-    }*/
+    }
 
     caseClickHandler(event){
         let array = [];
@@ -174,8 +174,7 @@ class Result extends Component{
                         </div>
                     </Slider>
                 </ScrollableAnchor>
-                    {/*<button className="btn" onClick={this.openKnowFormHandler}>Узнать, сколько клиентов я получу</button>*/}
-                    <button className="btn b24-web-form-popup-btn-29">Узнать, сколько клиентов я получу</button>
+                    <button className="btn" onClick={this.openKnowFormHandler}>Узнать, сколько клиентов я получу</button>
                 </div>
         </section>
     );
