@@ -1,3 +1,16 @@
+.btn-close{
+  width:32px;
+  height:32px;
+  path{
+    fill: #7E8488;
+    transition: all 0.3s ease-in-out;
+  }
+  &:hover{
+    path{
+      fill: black;
+    }
+  }
+}
 .popup-overlay{
   position: fixed;
   top: 0;
@@ -83,6 +96,10 @@
       font-family: $headers-font-bold;
       transition: color 0.3s ease-in-out;
       z-index: 2;
+      &--cta{
+        top: -2px;
+        right: -3px;
+      }
       &:hover{
         color: black;
       }

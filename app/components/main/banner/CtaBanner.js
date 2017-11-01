@@ -16,7 +16,11 @@ class CtaBanner extends React.Component{
         return(
             <section className="popup-overlay popup-overlay--cta" onClick={this.closeModalHandler.bind(this)}>
             <div className="popup-form popup-form--cta">
-                <div className="popup-form__close" >&times;</div>
+                <div className="popup-form__close popup-form__close--cta" >
+                    <svg className="btn-close" viewBox="0 0 24 24">
+                        <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+                    </svg>
+                </div>
                 <div className="popup-form__notification">
                     <h2>Менеджер свяжется с Вами в ближайшее время!</h2>
                 </div>
