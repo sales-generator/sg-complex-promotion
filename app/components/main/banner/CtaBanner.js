@@ -39,7 +39,7 @@ class CtaBanner extends React.Component{
                     </div>
                 </div>
                 <div className="cta-image-block__button" onClick={this.formClickHandler.bind(this)}>
-                    <a className="btn btn--download" href="https://sales-generator.ru/blog/cta-elementy/">Узнать, как увеличить конверсию</a>
+                    <a className="btn btn--download" href="https://sales-generator.ru/blog/cta-elementy/?utm_source=landing">Узнать, как увеличить конверсию</a>
                 </div>
             </div>
             </section>
