@@ -33,9 +33,7 @@ class CtaBanner extends React.Component{
                     </div>
                     <div className="cta-image-block__item">
                         <a href="https://sales-generator.ru/blog/cta-elementy/"><h2>CTA - элементы: правильные призывы к действию</h2></a>
-                        <p>
-                            В ней мы рассказали, как создать CTA - элементы, которые на 100% привлечёт внимание посетителей и увеличит конверсию сайта.
-                        </p>
+                        <p>В ней мы рассказали, как создать CTA - элементы, которые на 100% привлечёт внимание посетителей и увеличит конверсию сайта.</p>
                     </div>
                 </div>
                 <div className="cta-image-block__button" onClick={this.formClickHandler.bind(this)}>
