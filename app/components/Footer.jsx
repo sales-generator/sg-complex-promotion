@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ButtonToTop from './ButtonToTop';
+import CTAButton from './call-to-action-button/CTAButton';
 
 
 const Footer = () => {
@@ -7,6 +8,7 @@ const Footer = () => {
 
         <footer className="footer">
             {<ButtonToTop/>}
+            {<CTAButton/>}
             <div className="separatortop">
                 <svg id="triangle" version="1.1" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M 0 0 V 100 H 0 L 50 0 L 100 100 H 100 V 0 Z" ></path></svg>
             </div>
