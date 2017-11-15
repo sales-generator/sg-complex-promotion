@@ -152,6 +152,7 @@ export const sendClientsCallback = formData => {
         return requestCallback('./send_mail.php', formData)
             .then(json => {
                 dispatch(knowClients(json));
+                dispatch(showCtaBanner(true));
             })
             .catch(err => console.log('error'));
     }

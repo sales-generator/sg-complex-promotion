@@ -25,7 +25,7 @@ class HeaderContent extends Component{
                     <div className="container header__content">
                         <h1 className="header__content-title">КОМПЛЕКСНОЕ ПРОДВИЖЕНИЕ САЙТА В <span>ТОП-3</span> ЯНДЕКСА И GOOGLE</h1>
                         <h3 className="header__content-subtitle">Гарантированно приведем на Ваш сайт тысячи новых клиентов</h3>
-                        <button className="btn" onClick={this.openKnowFormHandler}>Узнать, сколько клиентов я получу</button>
+                        <button className="btn btn--know" onClick={this.openKnowFormHandler}>Узнать, сколько клиентов я получу</button>
                     </div>
                     <div className="stage">
                         <a href="#guarantees" className="scroll_down"></a>

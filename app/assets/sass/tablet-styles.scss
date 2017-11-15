@@ -289,4 +289,12 @@
     }
   }
 
+  .popup__toggle{
+    bottom: 20px;
+    right: calc(92% - 100px);
+    .circlephone{
+      display: none;
+    }
+  }
+
 }

@@ -13,8 +13,9 @@ class BringClients extends React.Component{
         let formData = {'form-name': 'know-bottom'};
         formData.name = this.refs.name.value;
         screen.width > 1024 ? formData.phone = this.refs.phone.mask.getValue() : formData.phone = this.refs.phone.value;
-
         this.props.sendClientsCallback(formData);
+        this.refs.name.value = '';
+        screen.width > 1024 ? this.refs.phone.mask.setValue('') : this.refs.phone.value = '';
         yaCounter44418460.reachGoal('POLUCHIT_PREDLOJENIE');
         ga('send', 'event', 'get-offer', 'send-get-offer');
     }

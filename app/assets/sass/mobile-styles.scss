@@ -475,6 +475,13 @@
       }
     }
   }
+  .popup__toggle{
+    bottom: 20px;
+    right: calc(87% - 100px);
+    .circlephone{
+      display: none;
+    }
+  }
 }
 
 @media screen and (min-width: 1280px) and (max-width: 1400px) {
