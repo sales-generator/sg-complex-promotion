@@ -163,7 +163,7 @@ export const sendCallback = formData => {
         return requestCallback('./send_mail.php', formData)
             .then(json => {
                 dispatch(sendRequestCallback(json));
-                dispatch(showCtaBanner(true));
+
             })
             .catch(err => console.log('error'));
     }
