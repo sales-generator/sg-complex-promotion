@@ -1,6 +1,6 @@
 
 <?php
-/*require ('./phpmailer/PHPMailerAutoload.php');
+require ('./phpmailer/PHPMailerAutoload.php');
 
  $mail = new PHPMailer;
  $mail -> isSMTP();
@@ -21,7 +21,7 @@
  $mail->addAddress('ac@salesgenerator.pro', 'Генератор продаж');
  $mail->addAddress('salesgenerates@mail.ru', 'Генератор продаж');
  $mail->addAddress('sd@salesgenerator.pro', 'Генератор продаж');
- $mail->isHtml(true);*/
+ $mail->isHtml(true);
 
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -43,7 +43,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                      "LAST_NAME" => '',
                      "STATUS_ID" => "NEW",
                      "OPENED" => "Y",
-                     "ASSIGNED_BY_ID" => 40, //ответсвтенный
+                     "ASSIGNED_BY_ID" => 9, //ответсвтенный
                      "PHONE" => array(array("VALUE" => $arrRequest['phone'], "VALUE_TYPE" => "WORK" )),
                      "EMAIL" => array(array("VALUE" => $arrRequest['email'], "VALUE_TYPE" => "WORK" )),
                      "UF_CRM_1444898239" => $arrRequest['comment'], // комментарий /ЯМ
@@ -66,7 +66,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                      "LAST_NAME" => '',
                      "STATUS_ID" => "NEW",
                      "OPENED" => "Y",
-                     "ASSIGNED_BY_ID" => 40, //ответсвтенный
+                     "ASSIGNED_BY_ID" => 9, //ответсвтенный
                      "PHONE" => array(array("VALUE" => $arrRequest['phone'], "VALUE_TYPE" => "WORK" )),
                      "EMAIL" => array(array("VALUE" => $arrRequest['email'], "VALUE_TYPE" => "WORK" )),
                      "UF_CRM_1444898239" => $arrRequest['comment'], // комментарий /ЯМ
@@ -89,7 +89,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                      "LAST_NAME" => '',
                      "STATUS_ID" => "NEW",
                      "OPENED" => "Y",
-                     "ASSIGNED_BY_ID" => 40, //ответсвтенный
+                     "ASSIGNED_BY_ID" => 9, //ответсвтенный
                      "PHONE" => array(array("VALUE" => $arrRequest['phone'], "VALUE_TYPE" => "WORK" )),
                      "EMAIL" => array(array("VALUE" => $arrRequest['email'], "VALUE_TYPE" => "WORK" )),
                      "UF_CRM_1444898239" => $arrRequest['comment'], // комментарий /ЯМ
@@ -112,7 +112,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                      "LAST_NAME" => '',
                      "STATUS_ID" => "NEW",
                      "OPENED" => "Y",
-                     "ASSIGNED_BY_ID" => 40, //ответсвтенный
+                     "ASSIGNED_BY_ID" => 9, //ответсвтенный
                      "PHONE" => array(array("VALUE" => $arrRequest['phone'], "VALUE_TYPE" => "WORK" )),
                      "EMAIL" => array(array("VALUE" => $arrRequest['email'], "VALUE_TYPE" => "WORK" )),
                      "UF_CRM_1444898239" => $arrRequest['comment'], // комментарий /ЯМ
@@ -135,7 +135,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                      "LAST_NAME" => '',
                      "STATUS_ID" => "NEW",
                      "OPENED" => "Y",
-                     "ASSIGNED_BY_ID" => 40, //ответсвтенный
+                     "ASSIGNED_BY_ID" => 9, //ответсвтенный
                      "PHONE" => array(array("VALUE" => $arrRequest['phone'], "VALUE_TYPE" => "WORK" )),
                      "EMAIL" => array(array("VALUE" => $arrRequest['email'], "VALUE_TYPE" => "WORK" )),
                      "UF_CRM_1444898239" => $arrRequest['comment'], // комментарий /ЯМ
@@ -158,7 +158,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                      "LAST_NAME" => '',
                      "STATUS_ID" => "NEW",
                      "OPENED" => "Y",
-                     "ASSIGNED_BY_ID" => 40, //ответсвтенный
+                     "ASSIGNED_BY_ID" => 9, //ответсвтенный
                      "PHONE" => array(array("VALUE" => $arrRequest['phone'], "VALUE_TYPE" => "WORK" )),
                      "EMAIL" => array(array("VALUE" => $arrRequest['email'], "VALUE_TYPE" => "WORK" )),
                      "UF_CRM_1444898239" => $arrRequest['comment'], // комментарий /ЯМ
@@ -182,7 +182,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                      "LAST_NAME" => '',
                      "STATUS_ID" => "NEW",
                      "OPENED" => "Y",
-                     "ASSIGNED_BY_ID" => 40, //ответсвтенный
+                     "ASSIGNED_BY_ID" => 9, //ответсвтенный
                      "PHONE" => array(array("VALUE" => $arrRequest['phone'], "VALUE_TYPE" => "WORK" )),
                      "EMAIL" => array(array("VALUE" => $arrRequest['email'], "VALUE_TYPE" => "WORK" )),
                      "UF_CRM_1444898239" => $arrRequest['comment'], // комментарий /ЯМ
@@ -205,7 +205,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                      "LAST_NAME" => '',
                      "STATUS_ID" => "NEW",
                      "OPENED" => "Y",
-                     "ASSIGNED_BY_ID" => 40, //ответсвтенный
+                     "ASSIGNED_BY_ID" => 9, //ответсвтенный
                      "PHONE" => array(array("VALUE" => $arrRequest['phone'], "VALUE_TYPE" => "WORK" )),
                      "EMAIL" => array(array("VALUE" => $arrRequest['email'], "VALUE_TYPE" => "WORK" )),
                      "UF_CRM_1444898239" => $arrRequest['comment'], // комментарий /ЯМ
@@ -228,7 +228,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                      "LAST_NAME" => '',
                      "STATUS_ID" => "NEW",
                      "OPENED" => "Y",
-                     "ASSIGNED_BY_ID" => 40, //ответсвтенный
+                     "ASSIGNED_BY_ID" => 9, //ответсвтенный
                      "PHONE" => array(array("VALUE" => $arrRequest['phone'], "VALUE_TYPE" => "WORK" )),
                      "EMAIL" => array(array("VALUE" => $arrRequest['email'], "VALUE_TYPE" => "WORK" )),
                      "UF_CRM_1444898239" => $arrRequest['comment'], // комментарий /ЯМ
@@ -258,6 +258,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo json_encode(["response" => true]);
             curl_close($curl);
         }
+
+
+
     }
 }
 ?>
