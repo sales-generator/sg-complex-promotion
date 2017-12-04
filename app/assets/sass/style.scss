@@ -6,6 +6,7 @@
 @import "footer";
 @import "../../components/call-to-action-button/cta-button";
 @import "modal-form";
+@import "staff";
 
 @mixin shadow{
   animation: btnShadowAnim 6.5s ease-in-out  infinite;
@@ -249,8 +250,25 @@
   }
 }
 /**********/
+.scroll_down {
+  /*height: 50px;*/
+  position: absolute;
+  width: 50px;
+}
 
+.mouse-down {
+  background: transparent;
+  border-radius: 6px;
+  height: 150px;
+  position: relative;
+  min-width: 538px;
+}
 
+.mouse-down:hover {
+  .scroll_down{
+    animation: slide 2s infinite linear;
+  }
+}
 
 @keyframes knowNotifAnimation {
   from{opacity: 0; height: 0px;}
@@ -288,30 +306,13 @@
 }
 
 @keyframes slide {
-  50% {
-    left: 50%;
-    top: 1%;
-  }
-  100% {
-    left: 50%;
-    top: 1%;
-  }
+  0% {transform: translateY(0px);}
+  50%{transform: translateY(60px);}
+  100%{transform: translateY(0px);}
 }
-.stage {
-  background: transparent;
-  border-radius: 6px;
-  height: 150px;
-  position: relative;
-  min-width: 538px;
-}
-.stage:hover .scroll_down {
-  animation: slide 2s linear;
-}
-.scroll_down {
-  /*height: 50px;*/
-  position: absolute;
-  width: 50px;
-}
+
+
+
 
 
 @import "mobile-styles";

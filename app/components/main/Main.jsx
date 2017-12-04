@@ -46,7 +46,7 @@ class Main extends Component{
                <KeyDigits/>
                <Recomendations/>
                <ClientsWords/>
-               {/*<Staff/>*/}
+               <Staff/>
                <Facts/>
                <BringClients/>
                {this.props.ctaBanner ? <CtaBanner/> : null}

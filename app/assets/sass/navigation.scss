@@ -17,7 +17,7 @@
   }
   &__title{
     font-size: 20px;
-    color: white;
+    color: #1e1a16;
     flex: 1 30%;
     font-family: $headers-font-bold;
     align-self: flex-start;
@@ -39,7 +39,7 @@
       position: absolute;
       font-family: FontAwesome;
       content: '\f095';
-      color: white;
+      color: #1e1a16;
       padding-right: 10px;
       font-weight: 100;
       left: 45px;
@@ -47,7 +47,7 @@
     }
     a{
       display: block;
-      color: white;
+      color: #1e1a16;
       font-size: 17px;
       text-decoration: none;
       transition: all 0.3s ease-in-out;
