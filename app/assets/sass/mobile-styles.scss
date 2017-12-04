@@ -11,7 +11,7 @@
     margin-bottom: 10px;
   }
   .content--background{
-    background: rgba(20, 20, 20, 0.81);
+    background: radial-gradient(at top,hsla(0,0%,8%,0),#f5f5f5 75%);
   }
   .header, .work-stages, .guarantees, .wdyg, .cl-words, .results, .recomendations, .b-clients, .facts{
     overflow: hidden;
@@ -115,7 +115,7 @@
     }
     &-content-background{
       background-size: cover;
-      background: url("../images/headerbackground.png") no-repeat 70% 50%;
+      background: url("../images/layer3.png") no-repeat 70% 50%;
     }
   }
   .know-form{
@@ -429,9 +429,6 @@
       }
     }
   }
-  .scroll_down {
-    display: none;
-  }
 
   .banner-form{
     &__field{
@@ -480,6 +477,21 @@
     right: calc(87% - 100px);
     .circlephone{
       display: none;
+    }
+  }
+
+  .mouse-down{
+    min-width: 100%;
+  }
+  .scroll_down{
+    top: 35%;
+  }
+
+  .staff{
+    &__description {
+      button{
+        left: auto;
+      }
     }
   }
 }
