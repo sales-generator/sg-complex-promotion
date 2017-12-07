@@ -35,9 +35,9 @@ class Banner extends React.Component{
 
     render() {
         let currentDate = new Date();
-        let daysCount = daysInMonth(currentDate.getMonth(), currentDate.getYear());
+        let daysCount = daysInMonth(currentDate.getYear(), currentDate.getMonth());
         let fiveDaysArray = findClosestDay(daysCount), actionDay = closestValue(fiveDaysArray, currentDate.getDate()),
-            currentMonthName = monthNames(daysCount);
+            currentMonthName = monthNames();
         return(
             <div className="popup-overlay popup-overlay--banner">
                 <div className="popup-form popup-form--banner">
