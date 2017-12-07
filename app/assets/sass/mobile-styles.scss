@@ -9,6 +9,7 @@
     margin-left: 0px;
     margin-top: 20px;
     margin-bottom: 10px;
+    height: 45px;
   }
   .content--background{
     background: radial-gradient(at top,hsla(0,0%,8%,0),#f5f5f5 75%);
@@ -106,6 +107,9 @@
         font-size: 20px;
         text-align: center;
         line-height: 30px;
+        span{
+          color: #60B4D4;
+        }
       }
       &-text{
         text-align: center;
@@ -114,8 +118,9 @@
       }
     }
     &-content-background{
+      background-image: url("../images/layer3.png");
       background-size: cover;
-      background: url("../images/layer3.png") no-repeat 70% 50%;
+      background-position-x: 55%;
     }
   }
   .know-form{
@@ -372,7 +377,8 @@
 
     .banner{
       &-text{
-        font-size: 25px;
+        font-size: 29px;
+        padding: 0 10px;
         span{
           color: #4CAF83;
           text-transform: uppercase;
@@ -408,8 +414,27 @@
     padding: 5px 0 !important;
     white-space: normal;
   }
+  .staff__description {
+    ul{
+      flex-flow: column;
+      li{
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+    h5{
+      text-align: center;
+    }
+
+  }
   .staff-info {
+    &__row{
+      padding: 0;
+      margin: 0;
+    }
     &__column {
+      margin: auto;
+      padding: 0;
       &__item {
         flex-direction: column;
         img {

@@ -14,7 +14,7 @@ class NavBar extends Component{
     render() {
         return(
             <nav className="container nav">
-                <div className="nav__logo"><a href="http://sales-generator.ru"><img src="images/logo-black.png"  alt="Sales Generator logo"/></a></div>
+                <div className="nav__logo"><a href="http://sales-generator.ru"><img src="images/saleslogoblack.svg"  alt="Sales Generator logo"/></a></div>
                 <h2 className="nav__title">Агентство интернет-маркетинга</h2>
                 <div className="nav__tel">
                     <a  href="tel:88003331293">8 (800) 333 12 93</a>
