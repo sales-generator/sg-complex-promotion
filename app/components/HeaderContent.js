@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {showKnowDefaultForm, showModal} from '../actions/index';
+import {showKnowDefaultForm, showModal, showBanner} from '../actions/index';
 import { bindActionCreators } from 'redux';
 import LiveRequest from './main/live-request/LiveRequest';
 import NavBar from './NavBar.jsx';
@@ -18,6 +18,10 @@ class HeaderContent extends Component{
         ga('send', 'event', 'know-clients-kp', 'send-know-klients-kp');
     }
 
+    openBannerHandler() {
+        this.props.showBanner(true);
+    }
+
     render() {
         return(
             <section className="header-content-background">
@@ -31,7 +35,7 @@ class HeaderContent extends Component{
                     <div className="mouse-down">
                         <a href="#guarantees" className="scroll_down"></a>
                     </div>
-                    <LiveRequest/>
+                    <LiveRequest onClick={this.openBannerHandler.bind(this)}/>
                 </div>
             </section>
         );
@@ -45,7 +49,7 @@ const mapStateToProps = (store) => {
 };
 
 const mapDispatchToProps = dispatch => {
-    return bindActionCreators({showKnowDefaultForm, showModal}, dispatch);
+    return bindActionCreators({showKnowDefaultForm, showModal, showBanner}, dispatch);
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(HeaderContent);
