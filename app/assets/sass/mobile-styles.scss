@@ -540,3 +540,23 @@
     }
   }
 }
+
+@media screen and (min-width: 1050px) and (max-width: 1399px) {
+  .popup-overlay{
+    .popup-form{
+      &--banner{
+        width: 80%;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1049px) {
+  .popup-overlay{
+    .popup-form{
+      &--banner{
+        width: 95%;
+      }
+    }
+  }
+}
