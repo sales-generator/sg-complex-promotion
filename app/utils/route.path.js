@@ -5,7 +5,8 @@ const routeCodes = {
     OPTIMIZATION: `${ publicPath }optimization`,
     SEMANTIC_CORE: `${ publicPath }semantic-core`,
     EXPERT_CONTENT: `${ publicPath }expert-content`,
-    CONVERSION: `${ publicPath }conversion`
+    CONVERSION: `${ publicPath }conversion`,
+    THANKS: `${publicPath}thanks`
 };
 
 export default routeCodes;

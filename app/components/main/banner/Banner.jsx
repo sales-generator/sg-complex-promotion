@@ -4,6 +4,8 @@ import { bindActionCreators } from 'redux';
 import {showBanner, sendCallback, nullCallbacks} from '../../../actions/index';
 import {daysInMonth, findClosestDay, closestValue, monthNames} from '../../../utils/time.date';
 import MaskedInput from 'react-maskedinput';
+import { Link } from 'react-router-dom';
+import routeCodes from '../../../utils/route.path';
 
 class Banner extends React.Component{
 
@@ -21,10 +23,13 @@ class Banner extends React.Component{
         formData['name'] = this.refs['name'].value;
         formData['phone'] = this.refs['phone'].mask.getValue();
         this.props.sendCallback(formData);
+        roistatGoal.reach({name: formData.name, phone: formData.phone, email: '', leadName: 'Лендинг_Комплексное _Предложение', text: 'Лендинг КП - Акция "Бесплатный аудит"'});
+        fbq('init', '1492479437472764');
+        fbq('track', 'PageView');
         this.refs['name'].value = '';
         this.refs['phone'].mask.setValue('');
         this.props.nullCallbacks(null, null);
-        this.closeBannerPopup();
+        this.props.history.push(routeCodes.THANKS);
 
     }
 
@@ -55,6 +60,7 @@ class Banner extends React.Component{
                         <input type="submit" value='Отправить заявку' className="btn banner-form__btn" onClick={this.targetBtnSend.bind(this)}/>
                     </form>
                 </div>
+                {/*<Link to={routeCodes.THANKS}>спасибо</Link>*/}
             </div>
         )
     }

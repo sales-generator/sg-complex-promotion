@@ -12,10 +12,13 @@ import KeyDigits from './key-digits/KeyDigits';
 import Approach from './approach/Approach';
 import Staff from '../Staff';
 import CtaBanner from '../main/banner/CtaBanner';
+import ThanksBanner from './banner/ThanksBanner';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Banner from './banner/Banner.jsx';
 import {showBanner} from '../../actions/index';
+import { BrowserRouter, Route, Switch} from 'react-router-dom';
+import routeCodes from '../../utils/route.path';
 
 class Main extends Component{
 
@@ -35,6 +38,38 @@ class Main extends Component{
         });
     }
 
+    closeBannerPopup(e) {
+        e.stopPropagation();
+        this.props.showBanner(false);
+        let date = new Date();
+        window.localStorage.setItem('banner', date.getTime());
+    }
+
+    formClickHandler(e){
+        e.stopPropagation();
+        this.props.showCtaBanner(true);
+    }
+
+    bannerPages() {
+        if (this.props.banner){
+            return (
+                <BrowserRouter>
+                    <Switch>
+                        <Route exact path={routeCodes.HOME} component={Banner}/>
+                        <Route path={routeCodes.THANKS} component={() => {
+                            return (
+                                <ThanksBanner close={
+                                    this.closeBannerPopup.bind(this)
+                                } stay={
+                                    this.formClickHandler.bind(this)
+                                } />)}}/>}/>
+                    </Switch>
+                </BrowserRouter>);
+        } else {
+            return false;
+        }
+    }
+
     render() {
         return(
            <main className="main">
@@ -50,7 +85,7 @@ class Main extends Component{
                <Facts/>
                <BringClients/>
                {this.props.ctaBanner ? <CtaBanner/> : null}
-               {this.props.banner ? <Banner/> : null}
+               {this.bannerPages()}
            </main>
         )
     };

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {showModal, sendCallback, nullCallbacks, contractShow, workPlanShow, reportShow, showKnowDefaultForm} from '../actions/index';
+import {showModal, sendClientForm, nullCallbacks, contractShow, workPlanShow, reportShow, showKnowDefaultForm, showKnowResultForm, showConsultationExpertsForm} from '../actions/index';
 import { bindActionCreators } from 'redux';
 import MaskedInput from 'react-maskedinput';
 
@@ -60,6 +60,8 @@ class ModalForm extends Component{
         this.props.workPlanShow(false);
         this.props.reportShow(false);
         this.props.showKnowDefaultForm(false);
+        this.props.showKnowResultForm(false);
+        this.props.showConsultationExpertsForm(false);
     }
 
 
@@ -71,34 +73,55 @@ class ModalForm extends Component{
             formData['form-name'] = 'contract-order';
             formData.email = this.refs.email.value;
             formData.phone = this.refs.phone.mask.getValue();
-            this.props.sendCallback(formData);
+            this.props.sendClientForm(formData);
+            roistatGoal.reach({name: formData.email, phone: formData.phone, email: formData.email, leadName: 'Лендинг_Комплексное _Предложение', text: 'Лендинг КП - скачать пример договора'});
         } else if (this.props.formState.workPlan) {
             formData['form-name'] = 'work-plan-order';
             formData.email = this.refs.email.value;
             formData.phone = this.refs.phone.mask.getValue();
-            this.props.sendCallback(formData);
+            this.props.sendClientForm(formData);
+            roistatGoal.reach({name: formData.email, phone: formData.phone, email: formData.email, leadName: 'Лендинг_Комплексное _Предложение', text: 'Лендинг КП - план работ на 2 месяца'});
         } else if(this.props.formState.report) {
             formData['form-name'] = 'report-order';
             formData.email = this.refs.email.value;
             formData.phone = this.refs.phone.mask.getValue();
-            this.props.sendCallback(formData);
+            this.props.sendClientForm(formData);
+            roistatGoal.reach({name: formData.email, phone: formData.phone, email: formData.email, leadName: 'Лендинг_Комплексное _Предложение', text: 'Лендинг КП - пример нашего отчёта'});
         } else if (this.props.formState.knowDefault) {
             formData = {'form-name': 'know-default'};
             formData['name'] = this.refs['name'].value;
             formData['phone'] = this.refs['phone'].mask.getValue();
             formData['comment'] = this.refs['comment'].value;
-            this.props.sendCallback(formData);
+            this.props.sendClientForm(formData);
+            roistatGoal.reach({name: formData.name, phone: formData.phone, email: '', leadName: 'Лендинг_Комплексное _Предложение', text: 'Лендинг КП - узнать, сколько клиентов я получу'});
+        } else if (this.props.formState.knowResult) {
+            formData = {'form-name': 'know-result'};
+            formData['name'] = this.refs['name'].value;
+            formData['phone'] = this.refs['phone'].value;
+            formData['comment'] = this.refs['comment'].value;
+            this.props.sendClientForm(formData);
+            roistatGoal.reach({name: formData.name, phone: formData.phone, email: '', leadName: 'Лендинг_Комплексное _Предложение', text: 'Лендинг КП - иконки на экране гарантии'});
+        } else if (this.props.formState.consultationExperts) {
+            formData = {'form-name': 'consultation-experts'};
+            formData['name'] = this.refs['name'].value;
+            formData['phone'] = this.refs['phone'].value;
+            formData['comment'] = this.refs['comment'].value;
+            this.props.sendClientForm(formData);
+            roistatGoal.reach({name: formData.name, phone: formData.phone, email: '', leadName: 'Лендинг_Комплексное _Предложение', text: 'Лендинг КП - получить консультацию экспертов'});
         } else {
             formData['name'] = this.refs['name'].value;
             formData['phone'] = this.refs['phone'].mask.getValue();
             formData['comment'] = this.refs['comment'].value;
-            this.props.sendCallback(formData);
+            this.props.sendClientForm(formData);
+            roistatGoal.reach({name: formData.name, phone: formData.phone, email: '', leadName: 'Лендинг_Комплексное _Предложение', text: 'Лендинг КП - заказать звонок'});
         }
 
         if (this.props.formState.contract || this.props.formState.workPlan || this.props.formState.report) {
             this.refs.email.value = '';
             this.refs.phone.mask.setValue('');
-        } else if (this.props.formState.knowDefault){
+        } else if (this.props.formState.knowDefault
+                    || this.props.formState.consultationExperts
+                    || this.props.formState.knowResult ){
             for (let field in this.refs) {
                 this.refs[field].value = '';
             }
@@ -161,7 +184,25 @@ class ModalForm extends Component{
                     </form>
                 </div>
             )
-        } if (this.props.formState.knowDefault){
+        } else if (this.props.formState.knowResult){
+            return(
+                <div className="popup-form">
+                    <div className="popup-form__close" onClick={this.closeModalHandler.bind(this)}>&times;</div>
+                    <p>Узнать сколько клиентов мы можем привести Вам на сайт</p>
+                    {this.mailNotification()}
+                    <form className="form-group" onClick={this.formClickHandler.bind(this)} onSubmit={this.btnSubmitHandler.bind(this)}>
+                        <label>Как к Вам обращаться?<span>*</span></label>
+                        <input  type="text" ref="name" name="name" className="form-control" placeholder="Иванов Иван Иванович" required/>
+                        <label>Телефон <span>*</span></label>
+                        <input  placeholder="+7(111) 111 11 11" type="text" ref="phone" name="phone" required="true" className="form-control"/>
+                        <label>Комментарий</label>
+                        <textarea className="form-control" name="comment" ref="comment" placeholder="Мой сайт www.mysite.ru. Прошу связаться со мной в 14:30."></textarea>
+                        {this.personalAgreement()}
+                        <input type="submit" value='Отправить заявку' className="btn" onClick={this.targetBtnSend.bind(this)}/>
+                    </form>
+                </div>
+            )
+        } else if (this.props.formState.knowDefault){
             return(
                 <div className="popup-form">
                     <div className="popup-form__close" onClick={this.closeModalHandler.bind(this)}>&times;</div>
@@ -171,6 +212,23 @@ class ModalForm extends Component{
                         <input  type="text" ref="name" name="name" className="form-control" placeholder="Иванов Иван Иванович" required/>
                         <label>Телефон <span>*</span></label>
                         <MaskedInput  mask="+7(111) 111 11 11" type="text" ref="phone" name="phone" required="true" className="form-control"/>
+                        <label>Комментарий</label>
+                        <textarea className="form-control" name="comment" ref="comment" placeholder="Мой сайт www.mysite.ru. Прошу связаться со мной в 14:30."></textarea>
+                        {this.personalAgreement()}
+                        <input type="submit" value='Отправить заявку' className="btn" onClick={this.targetBtnSend.bind(this)}/>
+                    </form>
+                </div>
+            )
+        } else if (this.props.formState.consultationExperts){
+            return(
+                <div className="popup-form popup-form--experts">
+                    <div className="popup-form__close" onClick={this.closeModalHandler.bind(this)}>&times;</div>
+                    <p>Узнайте интересующую Вас информацию у наших специалистов</p>
+                    <form className="form-group" onClick={this.formClickHandler.bind(this)} onSubmit={this.btnSubmitHandler.bind(this)}>
+                        <label>Как к Вам обращаться?<span>*</span></label>
+                        <input  type="text" ref="name" name="name" className="form-control" placeholder="Иванов Иван Иванович" required/>
+                        <label>Телефон <span>*</span></label>
+                        <input  placeholder="+7(111) 111 11 11" type="text" ref="phone" name="phone" required="true" className="form-control"/>
                         <label>Комментарий</label>
                         <textarea className="form-control" name="comment" ref="comment" placeholder="Мой сайт www.mysite.ru. Прошу связаться со мной в 14:30."></textarea>
                         {this.personalAgreement()}
@@ -213,7 +271,7 @@ const mapStateToProps = (store) => {
 };
 
 const mapDispatchToProps = dispatch => {
-    return bindActionCreators({showModal, sendCallback, nullCallbacks, contractShow, workPlanShow, reportShow, showKnowDefaultForm}, dispatch);
+    return bindActionCreators({showModal, sendClientForm, nullCallbacks, showKnowResultForm, contractShow, workPlanShow, reportShow, showKnowDefaultForm, showConsultationExpertsForm}, dispatch);
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ModalForm);

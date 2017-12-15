@@ -14,6 +14,7 @@ class BringClients extends React.Component{
         formData.name = this.refs.name.value;
         screen.width > 1024 ? formData.phone = this.refs.phone.mask.getValue() : formData.phone = this.refs.phone.value;
         this.props.sendClientsCallback(formData);
+        roistatGoal.reach({name: formData.name, phone: formData.phone, email: '', leadName: 'Лендинг_Комплексное _Предложение', text: 'Лендинг КП - получить персональное предложение'});
         this.refs.name.value = '';
         screen.width > 1024 ? this.refs.phone.mask.setValue('') : this.refs.phone.value = '';
         yaCounter44418460.reachGoal('POLUCHIT_PREDLOJENIE');
