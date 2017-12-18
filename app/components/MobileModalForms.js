@@ -55,40 +55,40 @@ class ModalForm extends Component{
             formData.email = this.refs.email.value;
             formData.phone = this.refs.phone.value;
             this.props.sendClientForm(formData);
-            roistatGoal.reach({name: formData.email, phone: formData.phone, email: formData.email, leadName: 'Лендинг_Комплексное _Предложение', text: 'Лендинг КП - скачать пример договора'});
+            roistatGoal.reach({name: formData.email, phone: formData.phone, email: formData.email, leadName: 'Лендинг_Комплексное_продвижение', text: 'Лендинг КП - скачать пример договора'});
         } else if (this.props.formState.workPlan) {
             formData['form-name'] = 'work-plan-order';
             formData.email = this.refs.email.value;
             formData.phone = this.refs.phone.value;
             this.props.sendClientForm(formData);
-            roistatGoal.reach({name: formData.email, phone: formData.phone, email: formData.email, leadName: 'Лендинг_Комплексное _Предложение', text: 'Лендинг КП - план работ на 2 месяца'});
+            roistatGoal.reach({name: formData.email, phone: formData.phone, email: formData.email, leadName: 'Лендинг_Комплексное_продвижение', text: 'Лендинг КП - план работ на 2 месяца'});
         } else if(this.props.formState.report) {
             formData['form-name'] = 'report-order';
             formData.email = this.refs.email.value;
             formData.phone = this.refs.phone.value;
             this.props.sendClientForm(formData);
-            roistatGoal.reach({name: formData.email, phone: formData.phone, email: formData.email, leadName: 'Лендинг_Комплексное _Предложение', text: 'Лендинг КП - пример нашего отчёта'});
+            roistatGoal.reach({name: formData.email, phone: formData.phone, email: formData.email, leadName: 'Лендинг_Комплексное_продвижение', text: 'Лендинг КП - пример нашего отчёта'});
         } else if (this.props.formState.knowDefault) {
             formData = {'form-name': 'know-default'};
             formData['name'] = this.refs['name'].value;
             formData['phone'] = this.refs['phone'].value;
             formData['comment'] = this.refs['comment'].value;
             this.props.sendClientForm(formData);
-            roistatGoal.reach({name: formData.name, phone: formData.phone, email: '', leadName: 'Лендинг_Комплексное _Предложение', text: 'Лендинг КП - узнать, сколько клиентов я получу'});
+            roistatGoal.reach({name: formData.name, phone: formData.phone, email: '', leadName: 'Лендинг_Комплексное_продвижение', text: 'Лендинг КП - узнать, сколько клиентов я получу'});
         } else if (this.props.formState.knowResult) {
             formData = {'form-name': 'know-result'};
             formData['name'] = this.refs['name'].value;
             formData['phone'] = this.refs['phone'].value;
             formData['comment'] = this.refs['comment'].value;
             this.props.sendClientForm(formData);
-            roistatGoal.reach({name: formData.name, phone: formData.phone, email: '', leadName: 'Лендинг_Комплексное _Предложение', text: 'Лендинг КП - иконки на экране гарантии'});
+            roistatGoal.reach({name: formData.name, phone: formData.phone, email: '', leadName: 'Лендинг_Комплексное_продвижение', text: 'Лендинг КП - иконки на экране гарантии'});
         } else if (this.props.formState.consultationExperts) {
             formData = {'form-name': 'consultation-experts'};
             formData['name'] = this.refs['name'].value;
             formData['phone'] = this.refs['phone'].value;
             formData['comment'] = this.refs['comment'].value;
             this.props.sendClientForm(formData);
-            roistatGoal.reach({name: formData.name, phone: formData.phone, email: '', leadName: 'Лендинг_Комплексное _Предложение', text: 'Лендинг КП - получить консультацию экспертов'});
+            roistatGoal.reach({name: formData.name, phone: formData.phone, email: '', leadName: 'Лендинг_Комплексное_продвижение', text: 'Лендинг КП - получить консультацию экспертов'});
         } else {
             formData['name'] = this.refs['name'].value;
             formData['phone'] = this.refs['phone'].value;

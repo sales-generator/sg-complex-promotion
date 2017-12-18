@@ -23,7 +23,7 @@ class Banner extends React.Component{
         formData['name'] = this.refs['name'].value;
         formData['phone'] = this.refs['phone'].mask.getValue();
         this.props.sendCallback(formData);
-        roistatGoal.reach({name: formData.name, phone: formData.phone, email: '', leadName: 'Лендинг_Комплексное _Предложение', text: 'Лендинг КП - Акция "Бесплатный аудит"'});
+        roistatGoal.reach({name: formData.name, phone: formData.phone, email: '', leadName: 'Лендинг_Комплексное_продвижение', text: 'Лендинг КП - Акция "Бесплатный аудит"'});
         fbq('init', '1492479437472764');
         fbq('track', 'PageView');
         this.refs['name'].value = '';
