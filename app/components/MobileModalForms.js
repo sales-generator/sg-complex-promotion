@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {showModal, sendCallback, nullCallbacks, contractShow, workPlanShow, reportShow, showKnowDefaultForm, showKnowResultForm, showConsultationExpertsForm} from '../actions/index';
+import {showModal, sendClientForm, nullCallbacks, contractShow, workPlanShow, reportShow, showKnowDefaultForm, showKnowResultForm, showConsultationExpertsForm} from '../actions/index';
 import { bindActionCreators } from 'redux';
 
 class ModalForm extends Component{
@@ -54,40 +54,46 @@ class ModalForm extends Component{
             formData['form-name'] = 'contract-order';
             formData.email = this.refs.email.value;
             formData.phone = this.refs.phone.value;
-            this.props.sendCallback(formData);
+            this.props.sendClientForm(formData);
+            roistatGoal.reach({name: formData.email, phone: formData.phone, email: formData.email, leadName: 'Лендинг_Комплексное_продвижение', text: 'Лендинг КП - скачать пример договора'});
         } else if (this.props.formState.workPlan) {
             formData['form-name'] = 'work-plan-order';
             formData.email = this.refs.email.value;
             formData.phone = this.refs.phone.value;
-            this.props.sendCallback(formData);
+            this.props.sendClientForm(formData);
+            roistatGoal.reach({name: formData.email, phone: formData.phone, email: formData.email, leadName: 'Лендинг_Комплексное_продвижение', text: 'Лендинг КП - план работ на 2 месяца'});
         } else if(this.props.formState.report) {
             formData['form-name'] = 'report-order';
             formData.email = this.refs.email.value;
             formData.phone = this.refs.phone.value;
-            this.props.sendCallback(formData);
+            this.props.sendClientForm(formData);
+            roistatGoal.reach({name: formData.email, phone: formData.phone, email: formData.email, leadName: 'Лендинг_Комплексное_продвижение', text: 'Лендинг КП - пример нашего отчёта'});
         } else if (this.props.formState.knowDefault) {
             formData = {'form-name': 'know-default'};
             formData['name'] = this.refs['name'].value;
             formData['phone'] = this.refs['phone'].value;
             formData['comment'] = this.refs['comment'].value;
-            this.props.sendCallback(formData);
+            this.props.sendClientForm(formData);
+            roistatGoal.reach({name: formData.name, phone: formData.phone, email: '', leadName: 'Лендинг_Комплексное_продвижение', text: 'Лендинг КП - узнать, сколько клиентов я получу'});
         } else if (this.props.formState.knowResult) {
             formData = {'form-name': 'know-result'};
             formData['name'] = this.refs['name'].value;
             formData['phone'] = this.refs['phone'].value;
             formData['comment'] = this.refs['comment'].value;
-            this.props.sendCallback(formData);
+            this.props.sendClientForm(formData);
+            roistatGoal.reach({name: formData.name, phone: formData.phone, email: '', leadName: 'Лендинг_Комплексное_продвижение', text: 'Лендинг КП - иконки на экране гарантии'});
         } else if (this.props.formState.consultationExperts) {
             formData = {'form-name': 'consultation-experts'};
             formData['name'] = this.refs['name'].value;
             formData['phone'] = this.refs['phone'].value;
             formData['comment'] = this.refs['comment'].value;
-            this.props.sendCallback(formData);
+            this.props.sendClientForm(formData);
+            roistatGoal.reach({name: formData.name, phone: formData.phone, email: '', leadName: 'Лендинг_Комплексное_продвижение', text: 'Лендинг КП - получить консультацию экспертов'});
         } else {
             formData['name'] = this.refs['name'].value;
             formData['phone'] = this.refs['phone'].value;
             formData['comment'] = this.refs['comment'].value;
-            this.props.sendCallback(formData);
+            this.props.sendClientForm(formData);
         }
     }
 
@@ -182,7 +188,7 @@ class ModalForm extends Component{
                     </form>
                 </div>
             )
-        } if (this.props.formState.knowDefault){
+        } else if (this.props.formState.knowDefault){
             return(
                 <div className="popup-form">
                     <div className="popup-form__close" onClick={this.closeModalHandler.bind(this)}>&times;</div>
@@ -200,7 +206,7 @@ class ModalForm extends Component{
                     </form>
                 </div>
             )
-        } if (this.props.formState.knowResult){
+        } else if (this.props.formState.knowResult){
             return(
                 <div className="popup-form">
                     <div className="popup-form__close" onClick={this.closeModalHandler.bind(this)}>&times;</div>
@@ -218,7 +224,7 @@ class ModalForm extends Component{
                     </form>
                 </div>
             )
-        } if (this.props.formState.consultationExperts){
+        } else if (this.props.formState.consultationExperts){
             return(
                 <div className="popup-form">
                     <div className="popup-form__close" onClick={this.closeModalHandler.bind(this)}>&times;</div>
@@ -272,7 +278,10 @@ const mapStateToProps = (store) => {
 };
 
 const mapDispatchToProps = dispatch => {
-    return bindActionCreators({showModal, sendCallback, nullCallbacks, contractShow, workPlanShow, reportShow, showKnowDefaultForm, showKnowResultForm, showConsultationExpertsForm}, dispatch);
+    return bindActionCreators({showModal, sendClientForm,
+        nullCallbacks, contractShow, workPlanShow,
+        reportShow, showKnowDefaultForm,
+        showKnowResultForm, showConsultationExpertsForm}, dispatch);
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ModalForm);

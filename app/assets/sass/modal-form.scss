@@ -38,6 +38,9 @@
     transition: all 5s ease-in-out;
     animation: formBlockAnim 0.3s 1 linear;
     z-index: 9999;
+    &--experts{
+      top: calc(50% - 295px);
+    }
     &--banner{
       background: linear-gradient(195deg, #1b1b1b 55%, #3f3f3f);
       color: white;
