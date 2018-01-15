@@ -53,7 +53,7 @@ class Banner extends React.Component{
                     </div>
                     <p className="banner-text">Оставьте заявку до <span>{actionDay} {currentMonthName}</span></p>
                     <p className="banner-text">и получите аудит вашего сайта</p>
-                    <p className="banner-text"><span>в подарок</span><img src="images/gift.png"/></p>
+                    <p className="banner-text">по <span>47</span> критериям <span>в подарок</span></p>
                     <form className="form-group banner-form" onSubmit={this.btnSubmitHandler.bind(this)}>
                         <input className="form-control banner-form__field" type="text" ref="name" name="name" placeholder="Имя*" required={true}/>
                         <MaskedInput  mask="+7(111) 111 11 11" type="text" ref="phone" name="phone" required="true" className="form-control banner-form__field"/>
