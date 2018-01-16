@@ -51,7 +51,7 @@ class Banner extends React.Component{
                             <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
                         </svg>
                     </div>
-                    <p className="banner-text">Оставьте заявку до <span>{actionDay} {currentMonthName}</span></p>
+                    <p className="banner-text">Оставьте заявку на коммерческое предложение до <span>{actionDay} {currentMonthName}</span></p>
                     <p className="banner-text">и получите аудит вашего сайта</p>
                     <p className="banner-text">по <span>47</span> критериям <span>в подарок</span></p>
                     <form className="form-group banner-form" onSubmit={this.btnSubmitHandler.bind(this)}>

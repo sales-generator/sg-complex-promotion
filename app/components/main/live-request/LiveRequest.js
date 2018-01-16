@@ -7,8 +7,8 @@ const LiveRequest = ({onClick}) => {
         currentMonthName = monthNames();
     return(
         <aside className="live-request" onClick={onClick}>
-            <p className="live-request__text">Оставьте заявку</p>
-            <p className="live-request__text">до <span>{actionDay} {currentMonthName} </span></p>
+            {/*<p className="live-request__text">Оставьте заявку</p>*/}
+            <p className="live-request__text">До <span>{actionDay} {currentMonthName} </span></p>
             <p className="live-request__text">аудит сайта</p>
             <p className="live-request__text"><span>в подарок</span></p>
         </aside>
