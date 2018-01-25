@@ -2,8 +2,8 @@
   position: absolute;
   right: 10%;
   bottom: 10%;
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
   border: 3px dashed #00bff3;
   padding: 15px;
   border-radius: 50%;
@@ -19,7 +19,8 @@
     font-family: $headers-font-bold;
     font-size: 17px;
     font-weight: 100;
-    color: #3e3e3e;
+    /*color: #3e3e3e;*/
+    color: white;
     margin: 0;
     span{
       color: #00bff3;
